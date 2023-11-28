@@ -2,49 +2,58 @@ DROP DATABASE IF EXISTS youtube;
 CREATE DATABASE IF NOT EXISTS youtube;
 USE youtube;
 
+CREATE TABLE IF NOT EXISTS Viewer (
+    ID varchar(128) 			PRIMARY KEY,
+    profilePhoto varchar(128),
+    displayName varchar(128)	NOT NULL,
+    lastLogin date				NOT NULL,
+    createdDate date			NOT NULL
+);
+
 -- Create the Google Account table
 CREATE TABLE IF NOT EXISTS GoogleAccount (
-    ID varchar(128) PRIMARY KEY,
-    googleAccountEmail varchar(100),
+    ID varchar(128) 				PRIMARY KEY,
+    googleAccountEmail varchar(100)	NOT NULL,
     phoneNumber varchar(10),
     recoveryEmail varchar(100),
-    gender char(1) CHECK (gender IN ('M', 'F'))
+    gender char(1)					NOT NULL,
+    CONSTRAINT chk_gender CHECK (gender IN ('M', 'F'))
 );
 
 -- Create the Google_billingInfo table
-CREATE TABLE IF NOT EXISTS GoogleBillingInfo (
-    googleID varchar(128),
-    GOOGLEcardType varchar(20),
-    GOOGLEcardNumber varchar(16),
-    PRIMARY KEY (googleID, GOOGLEcardNumber),
-    FOREIGN KEY (googleID) REFERENCES GoogleAccount(ID)
+CREATE TABLE IF NOT EXISTS GoogleAcct_billingInfo (
+    googleAcctID varchar(128),
+    googleAcct_cardType varchar(20),
+    googleAcct_cardNumber varchar(16),
+	PRIMARY KEY (googleAcctID, googleAcct_cardType, googleAcct_cardNumber),
+	FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
 
 -- Create the Google_address table
-CREATE TABLE IF NOT EXISTS GoogleAddress (
-    googleID varchar(128),
-    GOOGLEaddressNumber varchar(20),
-    GOOGLEpostCode varchar(10),
-    GOOGLEdistrict varchar(50),
-    GOOGLEprovince varchar(50),
-    GOOGLEroad varchar(100),
-    PRIMARY KEY (googleID, GOOGLEaddressNumber, GOOGLEpostCode, GOOGLEdistrict, GOOGLEprovince, GOOGLEroad),
-    FOREIGN KEY (googleID) REFERENCES GoogleAccount(ID)
+CREATE TABLE IF NOT EXISTS GoogleAcct_address (
+    googleAcctID varchar(128),
+    googleAcct_addressNumber varchar(20),
+    googleAcct_postCode varchar(10),
+    googleAcct_district varchar(50),
+    googleAcct_province varchar(50),
+    googleAcct_road varchar(100),
+    PRIMARY KEY (googleAcctID, googleAcct_addressNumber, googleAcct_postCode, googleAcct_district, googleAcct_province, googleAcct_road),
+    FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
 
 -- Create the Google Ads Account table
 CREATE TABLE IF NOT EXISTS GoogleAdsAccount (
-    googleAdsAccountID varchar(128) PRIMARY KEY,
-    googleID varchar(128) NOT NULL,
-    FOREIGN KEY (googleID) REFERENCES GoogleAccount(ID)
+    googleAdsAcctID varchar(128) 	PRIMARY KEY,
+    googleAcctID varchar(128) 		NOT NULL,
+    FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
 
 -- Create the GoogleAds_linkedAccount table
-CREATE TABLE IF NOT EXISTS GoogleAdsLinkedAccount (
-    googleAdsAccountID varchar(128),
-    GOOGLEADSlinkedAccount varchar(125),
-    PRIMARY KEY (googleAdsAccountID, GOOGLEADSlinkedAccount),
-    FOREIGN KEY (googleAdsAccountID) REFERENCES GoogleAdsAccount(googleAdsAccountID)
+CREATE TABLE IF NOT EXISTS GoogleAdsAcct_linkedAccount (
+    googleAdsAcctID varchar(128),
+    googleAdsAcct_linkedAccount varchar(125) NOT NULL,
+    PRIMARY KEY (googleAdsAcctID, googleAdsAcct_linkedAccount),
+    FOREIGN KEY (googleAdsAcctID) REFERENCES GoogleAdsAccount(googleAdsAcctID)
 );
 
 CREATE TABLE Channel_Creator (
@@ -137,15 +146,6 @@ CREATE TABLE Comments (
     videoID VARCHAR(128),
     CONSTRAINT fk_comments_channelID FOREIGN KEY (channelID) REFERENCES Channel_Creator(ID)
 );
-
-CREATE TABLE IF NOT EXISTS Viewer (
-    ID varchar(128) PRIMARY KEY,
-    profilePhoto varchar(128),
-    displayName varchar(128),
-    lastLogin date,
-    createdDate date
-);
-
 
 CREATE TABLE IF NOT EXISTS Subscribe (
     channelID varchar(128),
