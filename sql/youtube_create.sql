@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS GoogleAcct_billingInfo (
     googleAcctID 			VARCHAR(128),
     googleAcct_cardType 	VARCHAR(30),
     googleAcct_cardNumber 	VARCHAR(16),
+    CONSTRAINT chk_cardType CHECK (googleAcct_cardType IN ('American Express', 'Mastercard', 'Union Pay', 'Visa', 'Visa Electron'))
 	CONSTRAINT pk_GAbillingInfo PRIMARY KEY (googleAcctID, googleAcct_cardType, googleAcct_cardNumber),
 	CONSTRAINT fk_GAbillingInfo_GoogleAcctID FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
@@ -73,6 +74,7 @@ CREATE TABLE IF NOT EXISTS ChannelCreator (
     privacyStatus 		VARCHAR(20)     NOT NULL,
     topicDetails 		VARCHAR(50)     NOT NULL,
     googleAcctID 		VARCHAR(128)	NOT NULL,
+    CONSTRAINT chk_privacyStatus CHECK (privacyStatus IN ('private', 'public', 'unlisted')),
     CONSTRAINT fk_ChannelCreator_ViewerID FOREIGN KEY (ID) REFERENCES Viewer(ID),
 	CONSTRAINT fk_ChannelCreator_GoogleAcctID FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
@@ -160,6 +162,10 @@ CREATE TABLE IF NOT EXISTS Video (
     license			VARCHAR(50)		NOT NULL,
     madeForKids 	BOOLEAN			NOT NULL,
     channelID 		VARCHAR(128)	NOT NULL,
+    CONSTRAINT chk_dimension CHECK (dimension IN ('240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '4320p')),
+    CONSTRAINT chk_uploadStatus CHECK (uploadStatus IN ('deleted', 'failed', 'processed', 'rejected', 'uploaded',)),
+    CONSTRAINT chk_visibility CHECK (visibility IN ('private', 'public', 'unlisted')),
+    CONSTRAINT chk_license CHECK (license IN ('creativeCommon', 'youtube')),
     CONSTRAINT fk_Video_channelID FOREIGN KEY (channelID) REFERENCES ChannelCreator(ID)
 );
 
@@ -219,6 +225,7 @@ CREATE TABLE IF NOT EXISTS Comment (
     authorDisplayName 		VARCHAR(30)	    NOT NULL,
     channelID 				VARCHAR(128)	NOT NULL,
     videoID 				VARCHAR(128)	NOT NULL,
+    CONSTRAINT chk_moderationStatus CHECK (moderationStatus IN ('heldForReview', 'likelySpam', 'published', 'rejected')), 
     CONSTRAINT fk_Comment_channelID FOREIGN KEY (channelID) REFERENCES ChannelCreator(ID),
     CONSTRAINT fk_Comment_videoID FOREIGN KEY (videoID) REFERENCES Video(videoID)
 );
@@ -233,6 +240,7 @@ CREATE TABLE IF NOT EXISTS VideoAds (
     targetLanguage 	VARCHAR(60)	    NOT NULL,
     budget 			DECIMAL(16,2)	NOT NULL,
     googleAdsAcctID	VARCHAR(128)	NOT NULL,
+    CONSTRAINT chk_videoFormatType CHECK (videoFormatType IN ('Skippable video ads', 'Non-skippable video ads', 'Bumper ads'))
     CONSTRAINT fk_VideoAds_GoogleAdsAcctID FOREIGN KEY (googleAdsAcctID) REFERENCES GoogleAdsAccount(googleAdsAcctID)
 );
 
