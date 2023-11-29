@@ -1,3 +1,16 @@
+INSERT INTO Viewer (ID, profilePhotoUrl, displayName, lastLogin, createdDate)
+VALUES
+    ('asdf484f2s23d87g', '/images/profile001.jpg', 'John Doe', '2023-11-30 08:15:45', '2023-01-01 12:30:00'),
+    ('b2g76df3s9d2k1', '/images/profile002.jpg', 'Jane Smith', '2023-11-29 10:45:30', '2023-01-02 14:20:00'),
+    ('c4o7e3y5j9o2h3n', '/images/profile003.jpg', 'Spike', '2023-11-28 15:30:20', '2023-01-03 16:45:00'),
+    ('e1m3i9l2y4w5i0l', '/images/profile004.jpg', 'Emily Davis', '2023-11-27 12:20:10', '2023-01-04 09:10:00'),
+    ('m8i7c6h9a5e4l0b', '/images/profile005.jpg', 'Chris123', '2023-11-26 14:40:55', '2023-01-05 18:25:00'),
+    ('s5u3s6a9n2d0a2v', '/images/profile006.jpg', 'SpaceXYZ', '2023-11-25 09:35:30', '2023-01-06 11:50:00'),
+    ('d4a2v1d6m9i1l', '/images/profile007.jpg', 'Alex Chen', '2023-11-24 11:20:45', '2023-01-07 22:15:00'),
+    ('l1a0u9r7a6a5n2d', '/images/profile008.jpg', 'Laura Kim', '2023-11-23 17:55:30', '2023-01-08 08:40:00'),
+    ('w9i0l8l3i2a4m5w', '/images/profile009.jpg', 'Daniel MW', '2023-11-22 13:10:25', '2023-01-09 14:30:00'),
+    ('j1e0n7n6i8f9e1r', '/images/profile010.jpg', 'Mystique Nguyen', '2023-11-21 16:45:50', '2023-01-10 17:20:00');
+
 INSERT INTO GoogleAccount (ID, googleAccountEmail, phoneNumber, recoveryEmail, gender)
 VALUES
     ('asdf484f2s23d87g', 'john.doe@gmail.com', '0771234567', 'john.alt.recovery@gmail.com', 'M'),
@@ -11,60 +24,88 @@ VALUES
     ('w9i0l8l3i2a4m5w', 'william.white@gmail.com', '0865890124', 'william.secure_recover@protonmail.com', 'M'),
     ('j1e0n7n6i8f9e1r', 'jennifer.harris@gmail.com', '0705678902', 'jennifer.alternate_recovery@gmail.com', 'F');
 
-INSERT INTO GoogleBillingInfo (googleID, GOOGLEcardType, GOOGLEcardNumber)
+-- GoogleAcct_billingInfo
+INSERT INTO GoogleAcct_billingInfo (googleAcctID, googleAcct_cardType, googleAcct_cardNumber)
 VALUES
-    ('asdf484f2s23d87g', 'Visa', '2302340209357211'),
-    ('b2g76df3s9d2k1', 'MasterCard', '6778419082454994'),
-    ('c4o7e3y5j9o2h3n', 'American Express', '3782822463100055'),
-    ('e1m3i9l2y4w5i0l', 'Visa', '4112344112344113'),
-    ('m8i7c6h9a5e4l0b', 'MasterCard', '5105105105105106'),
-    ('s5u3s6a9n2d0a2v', 'American Express', '3714496353984319'),
-    ('d4a2v1d6m9i1l', 'Visa', '9696299497865485'),
-    ('l1a0u9r7a6a5n2d', 'MasterCard', '5432109876543210'),
-    ('w9i0l8l3i2a4m5w', 'American Express', '3787344936710001'),
-    ('j1e0n7n6i8f9e1r', 'Visa', '2666553398537541');
+    ('asdf484f2s23d87g', 'Visa', '4111111111111111'),
+    ('asdf484f2s23d87g', 'Mastercard', '5555555555554444'),
+    ('asdf484f2s23d87g', 'American Express', '378282246310005'),
+    ('asdf484f2s23d87g', 'Visa Electron', '4917300800000000'),
+    ('b2g76df3s9d2k1', 'Visa', '4112345678901234'),
+    ('b2g76df3s9d2k1', 'Union Pay', '6200000000000005'),
+    ('b2g76df3s9d2k1', 'Mastercard', '5105105105105100'),
+    ('c4o7e3y5j9o2h3n', 'American Express', '378734493671000'),
+    ('c4o7e3y5j9o2h3n', 'Visa', '4111111111111111'),
+    ('c4o7e3y5j9o2h3n', 'Mastercard', '5555555555554444'),
+    ('e1m3i9l2y4w5i0l', 'Union Pay', '6200000000000005'),
+    ('e1m3i9l2y4w5i0l', 'American Express', '378282246310005'),
+    ('m8i7c6h9a5e4l0b', 'Visa', '4112345678901234'),
+    ('m8i7c6h9a5e4l0b', 'Union Pay', '6200000000000005'),
+    ('s5u3s6a9n2d0a2v', 'Mastercard', '5555555555554444'),
+    ('s5u3s6a9n2d0a2v', 'Visa Electron', '4917300800000000'),
+    ('d4a2v1d6m9i1l', 'American Express', '378734493671000'),
+    ('d4a2v1d6m9i1l', 'Visa', '4111111111111111'),
+    ('w9i0l8l3i2a4m5w', 'Mastercard', '5555555555554444'),
+    ('j1e0n7n6i8f9e1r', 'Visa', '4112345678901234');
 
-INSERT INTO GoogleAddress (googleID, GOOGLEaddressNumber, GOOGLEpostCode, GOOGLEdistrict, GOOGLEprovince, GOOGLEroad)
+INSERT INTO GoogleAcct_address (googleAcctID, googleAcct_addressNumber, googleAcct_road, googleAcct_district, googleAcct_province, googleAcct_country, googleAcct_postalCode)
 VALUES
-    ('asdf484f2s23d87g', '123', '10230', 'Sukhumvit', 'Bangkok', 'Sukhumvit Road'),
-    ('asdf484f2s23d87g', '456', '10150', 'Sathorn', 'Bangkok', 'Sathorn Road'),
-    ('b2g76df3s9d2k1', '303', '10310', 'Chatuchak', 'Bangkok', 'Phahon Yothin Road'),
-    ('b2g76df3s9d2k1', '404/2', '10520', 'Lat Phrao', 'Bangkok', 'Lat Phrao Road'),
-    ('c4o7e3y5j9o2h3n', '111/8', '70000', 'Phra Singh', 'Chiang Mai', 'Moon Muang Road'),
-    ('c4o7e3y5j9o2h3n', '222', '50200', 'Nimmanhaemin', 'Chiang Mai', 'Nimmanhaemin Road'),
-    ('d4a2v1d6m9i1l', '777', '10100', 'Dusit', 'Bangkok', 'Dusit Zoo Road'),
-    ('d4a2v1d6m9i1l', '888/12', '10200', 'Bang Khun Thian', 'Bangkok', 'Bang Khun Thian Road'),
-    ('l1a0u9r7a6a5n2d', '999', '80000', 'Mueang Krabi', 'Krabi', 'Maharaj Road'),
-    ('l1a0u9r7a6a5n2d', '1010/5', '81180', 'Ao Nang', 'Krabi', 'Ao Nang Road');
+    ('asdf484f2s23d87g', '123', 'Sukhumvit Road', 'Sukhumvit', 'Bangkok', 'Thailand', '10230'),
+    ('asdf484f2s23d87g', '456', 'Sathorn Road', 'Sathorn', 'Bangkok', 'Thailand', '10150'),
+    ('asdf484f2s23d87g', '789', 'Phahon Yothin Road', 'Chatuchak', 'Bangkok', 'Thailand', '10310'),
+    ('asdf484f2s23d87g', '101', 'Lat Phrao Road', 'Lat Phrao', 'Bangkok', 'Thailand', '10520'),
+    ('b2g76df3s9d2k1', '303', 'Sukhumvit Road', 'Sukhumvit', 'Bangkok', 'Thailand', '10230'),
+    ('b2g76df3s9d2k1', '404/2', 'Sathorn Road', 'Sathorn', 'Bangkok', 'Thailand', '10150'),
+    ('b2g76df3s9d2k1', '203', 'Phahon Yothin Road', 'Chatuchak', 'Bangkok', 'Thailand', '10310'),
+    ('c4o7e3y5j9o2h3n', '111/8', 'Moon Muang Road', 'Phra Singh', 'Chiang Mai', 'Thailand', '70000'),
+    ('c4o7e3y5j9o2h3n', '222', 'Nimmanhaemin Road', 'Nimmanhaemin', 'Chiang Mai', 'Thailand', '50200'),
+    ('d4a2v1d6m9i1l', '777', 'Dusit Zoo Road', 'Dusit', 'Bangkok', 'Thailand', '10100'),
+    ('d4a2v1d6m9i1l', '888/12', 'Bang Khun Thian Road', 'Bang Khun Thian', 'Bangkok', 'Thailand', '10200'),
+    ('l1a0u9r7a6a5n2d', '999', 'Maharaj Road', 'Mueang Krabi', 'Krabi', 'Thailand', '80000'),
+    ('l1a0u9r7a6a5n2d', '1010/5', 'Ao Nang Road', 'Ao Nang', 'Krabi', 'Thailand', '81180'),
+    ('s5u3s6a9n2d0a2v', '789', 'District 1 Road', 'District 1', 'Hochiminh City', 'Vietnam', '70000'),
+    ('s5u3s6a9n2d0a2v', '101', 'Street 123', 'District 2', 'Hochiminh City', 'Vietnam', '80000'),
+    ('w9i0l8l3i2a4m5w', '456', 'Gangnam Road', 'Gangnam', 'Seoul', 'South Korea', '10230'),
+    ('w9i0l8l3i2a4m5w', '789', 'Myeongdong Street', 'Myeongdong', 'Seoul', 'South Korea', '10150');
 
-
--- Insert sample data into GoogleAdsAccount
-INSERT INTO GoogleAdsAccount (googleAdsAccountID, googleID)
+INSERT INTO GoogleAdsAccount (googleAdsAcctID, googleAcctID)
 VALUES
-    ('ads_acc_1', 'asdf484f2s23d87g'),
-    ('ads_acc_2', 'asdf484f2s23d87g'),
-    ('ads_acc_3', 'b2g76df3s9d2k1'),
-    ('ads_acc_4', 'c4o7e3y5j9o2h3n'),
-    ('ads_acc_5', 'd4a2v1d6m9i1l'),
-    ('ads_acc_6', 'd4a2v1d6m9i1l'),
-    ('ads_acc_7', 'l1a0u9r7a6a5n2d'),
-    ('ads_acc_8', 'l1a0u9r7a6a5n2d'),
-    ('ads_acc_9', 'l1a0u9r7a6a5n2d'),
-    ('ads_acc_10', 'm8i7c6h9a5e4l0b');
+    ('a1b2c3d4e5f6g7h8', 'asdf484f2s23d87g'),
+    ('i9j0k1l2m3n4o5p', 'asdf484f2s23d87g'),
+    ('q6r7s8t9u0v1w2x', 'asdf484f2s23d87g'),
+    ('y3z4a5b6c7d8e9f', 'b2g76df3s9d2k1'),
+    ('g0h1i2j3k4l5m6n', 'b2g76df3s9d2k1'),
+    ('o7p8q9r0s1t2u3v', 'c4o7e3y5j9o2h3n'),
+    ('w4x5y6z7a8b9c0d', 'd4a2v1d6m9i1l'),
+    ('e2f3g4h5i6j7k8l', 'l1a0u9r7a6a5n2d'),
+    ('m9n0o1p2q3r4s5t', 'w9i0l8l3i2a4m5w'),
+    ('u6v7w8x9y0z1a2b', 'j1e0n7n6i8f9e1r');
 
-
-INSERT INTO GoogleAdsLinkedAccount (googleAdsAccountID, GOOGLEADSlinkedAccount)
+INSERT INTO GoogleAdsAcct_linkedAccount (googleAdsAcctID, googleAdsAcct_linkedAcctUrl)
 VALUES
-    ('ads_acc_1', 'https://www.google.com'),
-    ('ads_acc_2', 'https://www.facebook.com'),
-    ('ads_acc_3', 'https://www.apple.com'),
-    ('ads_acc_4', 'https://www.microsoft.com'),
-    ('ads_acc_5', 'https://www.amazon.com'),
-    ('ads_acc_6', 'https://www.twitter.com'),
-    ('ads_acc_7', 'https://www.linkedin.com'),
-    ('ads_acc_8', 'https://www.yahoo.com'),
-    ('ads_acc_9', 'https://www.instagram.com'),
-    ('ads_acc_10', 'https://www.tiktok.com');
+    ('a1b2c3d4e5f6g7h8', 'https://fashion-mania.com/dress1'),
+    ('a1b2c3d4e5f6g7h8', 'https://travel-explorer.com/destination1'),
+    ('a1b2c3d4e5f6g7h8', 'https://socialhub.com/user1'),
+    ('a1b2c3d4e5f6g7h8', 'https://merch-paradise.com/product1'),
+    ('i9j0k1l2m3n4o5p', 'https://merch-paradise.com/product2'),
+    ('i9j0k1l2m3n4o5p', 'https://instagram.com/user2'),
+    ('i9j0k1l2m3n4o5p', 'https://travel-explorer.com/destination2'),
+    ('q6r7s8t9u0v1w2x', 'https://tiktok.com/@user3'),
+    ('q6r7s8t9u0v1w2x', 'https://alibaba.com/shop3'),
+    ('q6r7s8t9u0v1w2x', 'https://marketplace-world.com/shop3'),
+    ('y3z4a5b6c7d8e9f', 'https://merch-paradise.com/product4'),
+    ('y3z4a5b6c7d8e9f', 'https://instagram.com/user4'),
+	('y3z4a5b6c7d8e9f', 'https://fashion-mania.com/dress4'),
+    ('g0h1i2j3k4l5m6n', 'https://marketplace-world.com/shop5'),
+    ('g0h1i2j3k4l5m6n', 'https://tiktok.com/@user5'),
+    ('o7p8q9r0s1t2u3v', 'https://alibaba.com/shop6'),
+    ('o7p8q9r0s1t2u3v', 'https://merch-paradise.com/product6'),
+    ('w4x5y6z7a8b9c0d', 'https://instagram.com/user7'),
+    ('w4x5y6z7a8b9c0d', 'https://marketplace-world.com/shop7'),
+    ('e2f3g4h5i6j7k8l', 'https://tiktok.com/@user8'),
+    ('m9n0o1p2q3r4s5t', 'https://merch-paradise.com/product9'),
+    ('u6v7w8x9y0z1a2b', 'https://amazon.com/product10'),
+    ('u6v7w8x9y0z1a2b', 'https://walmart.com/item10');
 
 INSERT INTO Channel_Creator (
     ID,
@@ -262,18 +303,7 @@ INSERT INTO Comments (
 ('comment29', '12:00:00', '11:55:00', 'Pending', '14', '4 stars', false, 'Can you provide more details on the techniques used?', 'Request for technique details.', 'http://channel29.com', 'http://profile29.jpg', 'User29', '987654329', 'video133'),
 
 ('comment30', '12:50:00', '12:45:00', 'Approved', '16', '4 stars', true, 'Your videos are a valuable resource!', 'Valuable resource!', 'http://channel30.com', 'http://profile30.jpg', 'User30', '987654320', 'video134');
-INSERT INTO Viewer (ID, profilePhoto, displayName, lastLogin, createdDate)
-VALUES
-    ('viewer001', '/images/profile001.jpg', 'John Doe', '2022-10-15', '2022-01-01'),
-    ('viewer002', '/images/profile002.jpg', 'Jane Smith', '2022-10-14', '2022-01-02'),
-    ('viewer003', '/images/profile003.jpg', 'Mike Johnson', '2022-10-13', '2022-01-03'),
-    ('viewer004', '/images/profile004.jpg', 'Emily Davis', '2022-10-12', '2022-01-04'),
-    ('viewer005', '/images/profile005.jpg', 'Chris Lee', '2022-10-11', '2022-01-05'),
-    ('viewer006', '/images/profile006.jpg', 'Sarah Brown', '2022-10-10', '2022-01-06'),
-    ('viewer007', '/images/profile007.jpg', 'Alex Chen', '2022-10-09', '2022-01-07'),
-    ('viewer008', '/images/profile008.jpg', 'Laura Kim', '2022-10-08', '2022-01-08'),
-    ('viewer009', '/images/profile009.jpg', 'Daniel Wang', '2022-10-07', '2022-01-09'),
-    ('viewer010', '/images/profile010.jpg', 'Olivia Nguyen', '2022-10-06', '2022-01-10');
+
 
 
 INSERT INTO Subscribe (channelID, subscriberID, subscriptionDate)

@@ -5,10 +5,10 @@ USE youtube;
 -- Viewer
 CREATE TABLE IF NOT EXISTS Viewer (
     ID 				VARCHAR(128)	PRIMARY KEY,
-    profilePhotoUrl	VARCHAR(2083),
+    profilePhotoUrl	VARCHAR(255),
     displayName 	VARCHAR(30)	    NOT NULL,
-    lastLogin 		DATE			NOT NULL,
-    createdDate 	DATE			NOT NULL
+    lastLogin 		DATETIME		NOT NULL,
+    createdDate 	DATETIME		NOT NULL
 );
 
 -- Google Account
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS GoogleAdsAccount (
 
 CREATE TABLE IF NOT EXISTS GoogleAdsAcct_linkedAccount (
     googleAdsAcctID 			VARCHAR(128),
-    googleAdsAcct_linkedAcctUrl VARCHAR(2083) NOT NULL,
+    googleAdsAcct_linkedAcctUrl VARCHAR(255) NOT NULL,
     PRIMARY KEY (googleAdsAcctID, googleAdsAcct_linkedAcctURL(50)),
     CONSTRAINT fk_GAAlinkedAcct_GoogleAdsAcctID FOREIGN KEY (googleAdsAcctID) REFERENCES GoogleAdsAccount(googleAdsAcctID)
 );
@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS ChannelCreator (
     title 				VARCHAR(50)		NOT NULL,
     description 		VARCHAR(1000),
     publishedAt 		DATETIME		NOT NULL,
-    customUrl 			VARCHAR(2083)	NOT NULL,
-    thumbnailUrl 		VARCHAR(2083)	NOT NULL,
+    customUrl 			VARCHAR(255)	NOT NULL,
+    thumbnailUrl 		VARCHAR(255)	NOT NULL,
     defaultLanguage     VARCHAR(60)    NOT NULL,
     country             VARCHAR(60)     NOT NULL,
     overallGoodStanding BOOLEAN			NOT NULL,
@@ -152,13 +152,13 @@ CREATE TABLE IF NOT EXISTS Video (
     publishedAt 	DATETIME		NOT NULL,
     title 			VARCHAR(50)		NOT NULL,
     description 	VARCHAR(5000),
-    thumbnailUrl 	VARCHAR(2083)	NOT NULL,
+    thumbnailUrl 	VARCHAR(255)	NOT NULL,
     caption 		BOOLEAN			NOT NULL,
     duration 		TIME			NOT NULL,
     dimension 		VARCHAR(10)		NOT NULL,
     uploadStatus 	VARCHAR(20)		NOT NULL,
     visibility 		VARCHAR(20)		NOT NULL,
-    fileDetailUrl 	VARCHAR(2083)	NOT NULL,
+    fileDetailUrl 	VARCHAR(255)	NOT NULL,
     license			VARCHAR(50)		NOT NULL,
     madeForKids 	BOOLEAN			NOT NULL,
     channelID 		VARCHAR(128)	NOT NULL,
@@ -219,9 +219,9 @@ CREATE TABLE IF NOT EXISTS Comment (
     isPinned 				BOOLEAN			NOT NULL,
     canRate 				BOOLEAN			NOT NULL,
     textOriginal 			VARCHAR(5000)	NOT NULL,
-    textDisplay 			VARCHAR(6500)	NOT NULL,
-    authorChannelUrl 		VARCHAR(2083)	NOT NULL,
-    authorProfileImageUrl	VARCHAR(2083)	NOT NULL,
+    textDisplay 			TEXT			NOT NULL,
+    authorChannelUrl 		VARCHAR(255)	NOT NULL,
+    authorProfileImageUrl	VARCHAR(255)	NOT NULL,
     authorDisplayName 		VARCHAR(30)	    NOT NULL,
     channelID 				VARCHAR(128)	NOT NULL,
     videoID 				VARCHAR(128)	NOT NULL,
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS VideoAds (
 CREATE TABLE IF NOT EXISTS VideoAds_topic (
     videoAdsID 		VARCHAR(128),
     videoAds_topic 	VARCHAR(50),
-    videoAds_url 	VARCHAR(2083),
+    videoAds_url 	VARCHAR(255),
     CONSTRAINT pk_VAtopic PRIMARY KEY (videoAdsID, videoAds_topic, videoAds_url(50)),
     CONSTRAINT fk_VAtopic_videoAdsID FOREIGN KEY (videoAdsID) REFERENCES VideoAds(videoAdsID)
 );
