@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS GoogleAcct_billingInfo (
     googleAcctID 			VARCHAR(128),
     googleAcct_cardType 	VARCHAR(30),
     googleAcct_cardNumber 	VARCHAR(16),
-    CONSTRAINT chk_cardType CHECK (googleAcct_cardType IN ('American Express', 'Mastercard', 'Union Pay', 'Visa', 'Visa Electron'))
+    CONSTRAINT chk_cardType CHECK (googleAcct_cardType IN ('American Express', 'Mastercard', 'Union Pay', 'Visa', 'Visa Electron')),
 	CONSTRAINT pk_GAbillingInfo PRIMARY KEY (googleAcctID, googleAcct_cardType, googleAcct_cardNumber),
 	CONSTRAINT fk_GAbillingInfo_GoogleAcctID FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
 );
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS GoogleAcct_address (
     googleAcct_road 			VARCHAR(100),
     googleAcct_district 		VARCHAR(50),
     googleAcct_province 		VARCHAR(50),
-    googleAcct_country          VARCHAR(60)
+    googleAcct_country          VARCHAR(60),
     googleAcct_postalCode 		VARCHAR(10),
     CONSTRAINT pk_GAaddress PRIMARY KEY (googleAcctID, googleAcct_addressNumber, googleAcct_road, googleAcct_district, googleAcct_province, googleAcct_country, googleAcct_postalCode),
 	CONSTRAINT fk_GAaddress_GoogleAcctID FOREIGN KEY (googleAcctID) REFERENCES GoogleAccount(ID)
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS GoogleAdsAccount (
 CREATE TABLE IF NOT EXISTS GoogleAdsAcct_linkedAccount (
     googleAdsAcctID 			VARCHAR(128),
     googleAdsAcct_linkedAcctUrl VARCHAR(2083) NOT NULL,
-    PRIMARY KEY (googleAdsAcctID, googleAdsAcct_linkedAcctURL),
+    PRIMARY KEY (googleAdsAcctID, googleAdsAcct_linkedAcctURL(50)),
     CONSTRAINT fk_GAAlinkedAcct_GoogleAdsAcctID FOREIGN KEY (googleAdsAcctID) REFERENCES GoogleAdsAccount(googleAdsAcctID)
 );
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS Video (
     madeForKids 	BOOLEAN			NOT NULL,
     channelID 		VARCHAR(128)	NOT NULL,
     CONSTRAINT chk_dimension CHECK (dimension IN ('240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '4320p')),
-    CONSTRAINT chk_uploadStatus CHECK (uploadStatus IN ('deleted', 'failed', 'processed', 'rejected', 'uploaded',)),
+    CONSTRAINT chk_uploadStatus CHECK (uploadStatus IN ('deleted', 'failed', 'processed', 'rejected', 'uploaded')),
     CONSTRAINT chk_visibility CHECK (visibility IN ('private', 'public', 'unlisted')),
     CONSTRAINT chk_license CHECK (license IN ('creativeCommon', 'youtube')),
     CONSTRAINT fk_Video_channelID FOREIGN KEY (channelID) REFERENCES ChannelCreator(ID)
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS Comment (
     isPinned 				BOOLEAN			NOT NULL,
     canRate 				BOOLEAN			NOT NULL,
     textOriginal 			VARCHAR(5000)	NOT NULL,
-    textDisplay 			VARCHAR(10000)	NOT NULL,
+    textDisplay 			VARCHAR(6500)	NOT NULL,
     authorChannelUrl 		VARCHAR(2083)	NOT NULL,
     authorProfileImageUrl	VARCHAR(2083)	NOT NULL,
     authorDisplayName 		VARCHAR(30)	    NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS VideoAds (
     targetLanguage 	VARCHAR(60)	    NOT NULL,
     budget 			DECIMAL(16,2)	NOT NULL,
     googleAdsAcctID	VARCHAR(128)	NOT NULL,
-    CONSTRAINT chk_videoFormatType CHECK (videoFormatType IN ('Skippable video ads', 'Non-skippable video ads', 'Bumper ads'))
+    CONSTRAINT chk_videoFormatType CHECK (videoFormatType IN ('Skippable video ads', 'Non-skippable video ads', 'Bumper ads')),
     CONSTRAINT fk_VideoAds_GoogleAdsAcctID FOREIGN KEY (googleAdsAcctID) REFERENCES GoogleAdsAccount(googleAdsAcctID)
 );
 
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS VideoAds_topic (
     videoAdsID 		VARCHAR(128),
     videoAds_topic 	VARCHAR(50),
     videoAds_url 	VARCHAR(2083),
-    CONSTRAINT pk_VAtopic PRIMARY KEY (videoAdsID, videoAds_topic, videoAds_url),
+    CONSTRAINT pk_VAtopic PRIMARY KEY (videoAdsID, videoAds_topic, videoAds_url(50)),
     CONSTRAINT fk_VAtopic_videoAdsID FOREIGN KEY (videoAdsID) REFERENCES VideoAds(videoAdsID)
 );
 
