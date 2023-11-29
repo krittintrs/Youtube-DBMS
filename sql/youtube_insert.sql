@@ -9,7 +9,18 @@ VALUES
     ('d4a2v1d6m9i1l', '/images/profile007.jpg', 'Alex Chen', '2023-11-24 11:20:45', '2023-01-07 22:15:00'),
     ('l1a0u9r7a6a5n2d', '/images/profile008.jpg', 'Laura Kim', '2023-11-23 17:55:30', '2023-01-08 08:40:00'),
     ('w9i0l8l3i2a4m5w', '/images/profile009.jpg', 'Daniel MW', '2023-11-22 13:10:25', '2023-01-09 14:30:00'),
-    ('j1e0n7n6i8f9e1r', '/images/profile010.jpg', 'Mystique Nguyen', '2023-11-21 16:45:50', '2023-01-10 17:20:00');
+    ('j1e0n7n6i8f9e1r', '/images/profile010.jpg', 'Mystique Nguyen', '2023-11-21 16:45:50', '2023-01-10 17:20:00'),
+    ('v1a2d3e4r5i6d7', '/images/profile011.jpg', 'Alice Wonderland', '2023-11-20 08:30:45', '2023-02-01 12:45:00'),
+    ('v9i0e1w2e3r4v5i6e', '/images/profile012.jpg', 'Bob Marley', '2023-11-19 11:15:30', '2023-02-02 14:30:00'),
+    ('v3i4e5w6e9r2v3i4e', '/images/profile013.jpg', 'Eva Green', '2023-11-18 16:40:20', '2023-02-03 17:55:00'),
+    ('v1m3i9l2y4d5a0v', '/images/profile014.jpg', 'David Bowie', '2023-11-17 13:25:10', '2023-02-04 10:10:00'),
+    ('v8i7c6h9r5i4s0l', '/images/profile015.jpg', 'Lily Rose', '2023-11-16 15:45:55', '2023-02-05 18:25:00'),
+    ('v5u3s6a9n2d0a2v', '/images/profile016.jpg', 'Samuel Jackson', '2023-11-15 10:40:30', '2023-02-06 11:50:00'),
+    ('v4a2l1e9x6c9h8e', '/images/profile017.jpg', 'Alex Turner', '2023-11-14 12:20:45', '2023-02-07 22:15:00'),
+    ('v1a0u9r7a6a5n2d', '/images/profile018.jpg', 'Laura Palmer', '2023-11-13 17:55:30', '2023-02-08 08:40:00'),
+    ('v9i0l8l3i2a4m5w', '/images/profile019.jpg', 'Daniel Radcliffe', '2023-11-12 13:10:25', '2023-02-09 14:30:00'),
+    ('v1e0n7n6i8f9e1r', '/images/profile020.jpg', 'Olivia Newton', '2023-11-11 16:45:50', '2023-02-10 17:20:00');
+
 
 INSERT INTO GoogleAccount (ID, googleAccountEmail, phoneNumber, recoveryEmail, gender)
 VALUES
@@ -107,45 +118,76 @@ VALUES
     ('u6v7w8x9y0z1a2b', 'https://amazon.com/product10'),
     ('u6v7w8x9y0z1a2b', 'https://walmart.com/item10');
 
-INSERT INTO Channel_Creator (
+-- Inserting 10 new records into ChannelCreator with privacy variations
+INSERT INTO ChannelCreator (
     ID,
+    title,
+    description,
     publishedAt,
     customUrl,
-    description,
-    brandingSettings,
+    thumbnailUrl,
+    defaultLanguage,
+    country,
     overallGoodStanding,
     communityGuidelines,
     copyrightStrikes,
     contentIdClaims,
-    contentOwnerDetails,
-    localizations,
-    title,
-    topicDetails,
     privacyStatus,
-    likePlaylist,
-    uploadPlaylist,
-    thumbnails,
-    googleID
-) VALUES
-('987654321', '2023-11-10 08:00:00', 'customUrl123', 'Description for channel123', 'Brand123', 'Good', 'Followed', 'No', 'None', 'Owner123', 'English', 'Channel Title 123', 'Technology', 'Public', 'Likes123', 'Uploads123', 'thumbnail123.jpg', 'asdf484f2s23d87g'),
+    topicDetails,
+    googleAcctID
+)
+VALUES
+    ('v1a2d3e4r5i6d7', 'Wonderland Adventures', 'Exploring the wonders of the world!', '2023-02-01 12:45:00', 'wonderland', '/images/channel001.jpg', 'English', 'US', true, true, false, false, 'private', 'Travel', 'asdf484f2s23d87g'),
+    ('v9i0e1w2e3r4v5i6e', 'Reggae Vibes', 'Feel the rhythm and positive vibes of reggae music!', '2023-02-02 14:30:00', 'reggaevibes', '/images/channel002.jpg', 'English', 'Jamaica', true, true, false, false, 'public', 'Music', 'asdf484f2s23d87g'),
+    ('v3i4e5w6e9r2v3i4e', 'Food Paradise', 'Exploring culinary delights and mouth-watering recipes.', '2023-02-03 17:55:00', 'foodparadise', '/images/channel003.jpg', 'English', 'UK', true, true, false, false, 'unlisted', 'Food', 'c4o7e3y5j9o2h3n'),
+    ('v1m3i9l2y4d5a0v', 'Stardust Dreams', 'Immerse yourself in the world of dreams and stardust.', '2023-02-04 10:10:00', 'stardustdreams', '/images/channel004.jpg', 'English', 'US', true, true, false, false, 'private', 'Entertainment', 'e1m3i9l2y4w5i0l'),
+    ('v8i7c6h9r5i4s0l', 'Artistic Expressions', 'A journey through various forms of artistic expressions.', '2023-02-05 18:25:00', 'artisticexpressions', '/images/channel005.jpg', 'English', 'US', true, true, false, false, 'private', 'Art', 'm8i7c6h9a5e4l0b'),
+    ('v5u3s6a9n2d0a2v', 'Space Odyssey', 'Exploring the wonders of outer space and beyond!', '2023-02-06 11:50:00', 'spaceodyssey', '/images/channel006.jpg', 'English', 'US', true, true, false, false, 'public', 'Science', 's5u3s6a9n2d0a2v'),
+    ('v4a2l1e9x6c9h8e', 'Arctic Explorations', 'Journeying through the icy landscapes of the Arctic.', '2023-02-07 22:15:00', 'arcticexplorations', '/images/channel007.jpg', 'English', 'Canada', true, true, false, false, 'public', 'History', 'd4a2v1d6m9i1l'),
+    ('v1a0u9r7a6a5n2d', 'Mysterious Twin Peaks', 'Unraveling the mysteries of Twin Peaks.', '2023-02-08 08:40:00', 'twinpeaks', '/images/channel008.jpg', 'English', 'US', true, true, false, false, 'public', 'Mystery', 'l1a0u9r7a6a5n2d'),
+    ('v9i0l8l3i2a4m5w', 'Wizarding World Wonders', 'Discovering the magical wonders of the wizarding world.', '2023-02-09 14:30:00', 'wizardingwonders', '/images/channel009.jpg', 'English', 'UK', true, true, false, false, 'private', 'Fantasy', 'w9i0l8l3i2a4m5w'),
+    ('v1e0n7n6i8f9e1r', 'Melodies of Nature', 'Harmony of nature''s melodies and soothing sounds.', '2023-02-10 17:20:00', 'naturemelodies', '/images/channel010.jpg', 'English', 'US', true, true, false, false, 'private', 'Nature', 'j1e0n7n6i8f9e1r');
 
-('987654322', '2023-11-09 12:30:00', 'customUrl456', 'Description for channel456', 'Brand456', 'Good', 'Followed', 'Yes', 'Some', 'Owner456', 'Spanish', 'Channel Title 456', 'Music', 'Private', 'Likes456', 'Uploads456', 'thumbnail456.jpg', 'b2g76df3s9d2k1'),
-
-('987654323', '2023-11-08 15:45:00', 'customUrl789', 'Description for channel789', 'Brand789', 'Good', 'Followed', 'No', 'None', 'Owner789', 'French', 'Channel Title 789', 'Travel', 'Public', 'Likes789', 'Uploads789', 'thumbnail789.jpg', 'c4o7e3y5j9o2h3n'),
-
-('987654324', '2023-11-07 10:15:00', 'customUrlABC', 'Description for channelABC', 'BrandABC', 'Good', 'Followed', 'Yes', 'Some', 'OwnerABC', 'German', 'Channel Title ABC', 'Cooking', 'Private', 'LikesABC', 'UploadsABC', 'thumbnailABC.jpg', 'e1m3i9l2y4w5i0l'),
-
-('987654325', '2023-11-06 18:20:00', 'customUrlXYZ', 'Description for channelXYZ', 'BrandXYZ', 'Good', 'Followed', 'No', 'None', 'OwnerXYZ', 'Italian', 'Channel Title XYZ', 'Fitness', 'Public', 'LikesXYZ', 'UploadsXYZ', 'thumbnailXYZ.jpg', 'm8i7c6h9a5e4l0b'),
-
-('987654326', '2023-11-05 08:45:00', 'customUrl78910', 'Description for channel78910', 'Brand78910', 'Good', 'Followed', 'No', 'None', 'Owner78910', 'French', 'Channel Title 78910', 'Travel', 'Public', 'Likes78910', 'Uploads78910', 'thumbnail78910.jpg', 's5u3s6a9n2d0a2v'),
-
-('987654327', '2023-11-04 14:30:00', 'customUrlABC11', 'Description for channelABC11', 'BrandABC11', 'Good', 'Followed', 'Yes', 'Some', 'OwnerABC11', 'German', 'Channel Title ABC11', 'Cooking', 'Private', 
-'LikesABC11', 'UploadsABC11', 'thumbnailABC11.jpg', 'd4a2v1d6m9i1l'),
-
-('987654328', '2023-11-03 18:50:00', 'customUrlXYZ12', 'Description for channelXYZ12', 'BrandXYZ12', 'Good', 'Followed', 'No', 'None', 'OwnerXYZ12', 'Italian', 'Channel Title XYZ12', 'Fitness', 'Public', 'LikesXYZ12', 'UploadsXYZ12', 'thumbnailXYZ12.jpg', 'l1a0u9r7a6a5n2d'),
-
-('987654329', '2023-11-02 10:30:00', 'customUrl12313', 'Description for channel12313', 'Brand12313', 'Good', 'Followed', 'Yes', 'Some', 'Owner12313', 'English', 'Channel Title 12313', 'Technology', 'Private', 'Likes12313', 'Uploads12313', 'thumbnail12313.jpg', 'w9i0l8l3i2a4m5w'),
-('987654320', '2023-11-02 10:30:00', 'customUrl12313', 'Description for channel12313', 'Brand12313', 'Good', 'Followed', 'Yes', 'Some', 'Owner12313', 'English', 'Channel Title 12313', 'Technology', 'Private', 'Likes12313', 'Uploads12313', 'thumbnail12313.jpg', 'j1e0n7n6i8f9e1r');
+INSERT INTO Subscribe (channelID, subscriberID, subscriptionDate)
+VALUES
+    ('v1a2d3e4r5i6d7', 'v9i0e1w2e3r4v5i6e', '2023-03-05 08:30:00'),
+    ('v1a2d3e4r5i6d7', 'v3i4e5w6e9r2v3i4e', '2023-03-18 10:20:00'),
+    ('v1a2d3e4r5i6d7', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
+    ('v1a2d3e4r5i6d7', 'v1a0u9r7a6a5n2d', '2023-04-11 14:20:00'),
+    ('v1a2d3e4r5i6d7', 'v5u3s6a9n2d0a2v', '2023-04-23 16:10:00'),
+    ('v1a2d3e4r5i6d7', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
+    ('v1a2d3e4r5i6d7', 'v4a2l1e9x6c9h8e', '2023-05-17 20:30:00'),
+    ('v1a2d3e4r5i6d7', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v9i0l8l3i2a4m5w', '2023-04-23 16:10:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v4a2l1e9x6c9h8e', '2023-05-11 19:55:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v9i0l8l3i2a4m5w', '2023-05-17 20:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v1a0u9r7a6a5n2d', '2023-06-04 23:45:00'),
+    ('v4a2l1e9x6c9h8e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
+    ('v4a2l1e9x6c9h8e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
+    ('v4a2l1e9x6c9h8e', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
+    ('v4a2l1e9x6c9h8e', 'v1a0u9r7a6a5n2d', '2023-06-04 23:45:00'),
+    ('v4a2l1e9x6c9h8e', 'v9i0l8l3i2a4m5w', '2023-06-20 14:10:00'),
+    ('v1m3i9l2y4d5a0v', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
+    ('v1m3i9l2y4d5a0v', 'v5u3s6a9n2d0a2v', '2023-05-11 19:55:00'),
+    ('v1m3i9l2y4d5a0v', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
+    ('v1e0n7n6i8f9e1r', 'v5u3s6a9n2d0a2v', '2023-05-11 19:55:00'),
+    ('v1e0n7n6i8f9e1r', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
+    ('v1e0n7n6i8f9e1r', 'v8i7c6h9r5i4s0l', '2023-06-20 14:10:00'),
+    ('v1a0u9r7a6a5n2d', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
+    ('v1a0u9r7a6a5n2d', 'v1e0n7n6i8f9e1r', '2023-06-20 14:10:00'),
+    ('v1a0u9r7a6a5n2d', 'v8i7c6h9r5i4s0l', '2023-07-02 16:30:00'),
+    ('v8i7c6h9r5i4s0l', 'v5u3s6a9n2d0a2v', '2023-06-20 14:10:00'),
+    ('v8i7c6h9r5i4s0l', 'v9i0l8l3i2a4m5w', '2023-07-02 16:30:00'),
+    ('v5u3s6a9n2d0a2v', 'v9i0l8l3i2a4m5w', '2023-07-02 16:30:00'),
+    ('v5u3s6a9n2d0a2v', 'v1e0n7n6i8f9e1r', '2023-07-15 18:50:00'),
+    ('v9i0l8l3i2a4m5w', 'v8i7c6h9r5i4s0l', '2023-07-15 18:50:00');
 
 INSERT INTO Video (
     videoID,
@@ -304,40 +346,6 @@ INSERT INTO Comments (
 
 ('comment30', '12:50:00', '12:45:00', 'Approved', '16', '4 stars', true, 'Your videos are a valuable resource!', 'Valuable resource!', 'http://channel30.com', 'http://profile30.jpg', 'User30', '987654320', 'video134');
 
-
-
-INSERT INTO Subscribe (channelID, subscriberID, subscriptionDate)
-VALUES
-    ('987654321', '987654324', '2022-10-15'),
-    ('987654322', '987654321', '2022-10-14'),
-    ('987654323', '987654321', '2022-10-13'),
-    ('987654324', '987654321', '2022-10-12'),
-    ('987654325', '987654321', '2022-10-11'),
-    ('987654326', '987654321', '2022-10-10'),
-    ('987654327', '987654321', '2022-10-09'),
-    ('987654328', '987654321', '2022-10-08'),
-    ('987654329', '987654321', '2022-10-07'),
-    ('987654320', '987654321', '2022-10-06'),
-    ('987654321', '987654322', '2022-10-05'),
-    ('987654322', '987654325', '2022-10-04'),
-    ('987654323', '987654322', '2022-10-03'),
-    ('987654324', '987654322', '2022-10-02'),
-    ('987654325', '987654322', '2022-10-01'),
-    ('987654326', '987654322', '2022-09-30'),
-    ('987654327', '987654322', '2022-09-29'),
-    ('987654328', '987654322', '2022-09-28'),
-    ('987654329', '987654322', '2022-09-27'),
-    ('987654320', '987654322', '2022-09-26'),
-    ('987654321', '987654323', '2022-09-25'),
-    ('987654322', '987654323', '2022-09-24'),
-    ('987654323', '987654326', '2022-09-23'),
-    ('987654324', '987654323', '2022-09-22'),
-    ('987654325', '987654323', '2022-09-21'),
-    ('987654326', '987654323', '2022-09-20'),
-    ('987654327', '987654323', '2022-09-19'),
-    ('987654328', '987654323', '2022-09-18'),
-    ('987654329', '987654323', '2022-09-17'),
-    ('987654320', '987654323', '2022-09-16');
 
 INSERT INTO Engage (viewerID, videoID, usedDevice, watchDuration, isSaved, isDisliked, isLiked)
 VALUES
