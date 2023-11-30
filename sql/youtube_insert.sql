@@ -19,8 +19,12 @@ VALUES
     ('v4a2l1e9x6c9h8e', '/images/profile017.jpg', 'Alex Turner', '2023-11-14 12:20:45', '2023-02-07 22:15:00'),
     ('v1a0u9r7a6a5n2d', '/images/profile018.jpg', 'Laura Palmer', '2023-11-13 17:55:30', '2023-02-08 08:40:00'),
     ('v9i0l8l3i2a4m5w', '/images/profile019.jpg', 'Daniel Radcliffe', '2023-11-12 13:10:25', '2023-02-09 14:30:00'),
-    ('v1e0n7n6i8f9e1r', '/images/profile020.jpg', 'Olivia Newton', '2023-11-11 16:45:50', '2023-02-10 17:20:00');
-
+    ('v1e0n7n6i8f9e1r', '/images/profile020.jpg', 'Olivia Newton', '2023-11-11 16:45:50', '2023-02-10 17:20:00'),
+    ('v2g4o5o6g7l8e9a0c', '/images/profile021.jpg', 'GadgetGuru', '2023-11-10 12:30:45', '2023-02-11 13:45:00'),
+    ('b6c7o8u9n1t2r3y4L', '/images/profile022.jpg', 'CuriousTraveler', '2023-11-09 14:15:30', '2023-02-12 15:20:00'),
+    ('c3o4u5n6t7r8y9S', '/images/profile023.jpg', 'SkyWatcher', '2023-11-08 17:30:20', '2023-02-13 16:45:00'),
+    ('que23his21h2hws', '/images/profile024.jpg', 'MagicalMomentsFan2', '2023-11-07 12:20:10', '2023-02-14 09:10:00'),
+    ('m8i7n6d9f5u4l0l', '/images/profile025.jpg', 'MindfulLivingFan', '2023-11-06 14:40:55', '2023-02-15 18:25:00');
 
 INSERT INTO GoogleAccount (ID, googleAccountEmail, phoneNumber, recoveryEmail, gender)
 VALUES
@@ -118,7 +122,7 @@ VALUES
     ('u6v7w8x9y0z1a2b', 'https://amazon.com/product10'),
     ('u6v7w8x9y0z1a2b', 'https://walmart.com/item10');
 
--- Inserting 10 new records into ChannelCreator with privacy variations
+-- Channel
 INSERT INTO ChannelCreator (
     ID,
     title,
@@ -146,253 +150,73 @@ VALUES
     ('v4a2l1e9x6c9h8e', 'Arctic Explorations', 'Journeying through the icy landscapes of the Arctic.', '2023-02-07 22:15:00', 'arcticexplorations', '/images/channel007.jpg', 'English', 'Canada', true, true, false, false, 'public', 'History', 'd4a2v1d6m9i1l'),
     ('v1a0u9r7a6a5n2d', 'Mysterious Twin Peaks', 'Unraveling the mysteries of Twin Peaks.', '2023-02-08 08:40:00', 'twinpeaks', '/images/channel008.jpg', 'English', 'US', true, true, false, false, 'public', 'Mystery', 'l1a0u9r7a6a5n2d'),
     ('v9i0l8l3i2a4m5w', 'Wizarding World Wonders', 'Discovering the magical wonders of the wizarding world.', '2023-02-09 14:30:00', 'wizardingwonders', '/images/channel009.jpg', 'English', 'UK', true, true, false, false, 'private', 'Fantasy', 'w9i0l8l3i2a4m5w'),
-    ('v1e0n7n6i8f9e1r', 'Melodies of Nature', 'Harmony of nature''s melodies and soothing sounds.', '2023-02-10 17:20:00', 'naturemelodies', '/images/channel010.jpg', 'English', 'US', true, true, false, false, 'private', 'Nature', 'j1e0n7n6i8f9e1r');
+    ('v1e0n7n6i8f9e1r', 'Melodies of Nature', 'Harmony of nature''s melodies and soothing sounds.', '2023-02-10 17:20:00', 'naturemelodies', '/images/channel010.jpg', 'English', 'US', true, true, false, false, 'private', 'Nature', 'j1e0n7n6i8f9e1r'),
+    ('v2g4o5o6g7l8e9a0c', 'Tech Explorers', 'Discover the latest in technology and innovation.', '2023-03-20 13:25:00', 'techexplorers', '/images/channel011.jpg', 'English', 'US', true, true, false, false, 'public', 'Technology', 'd4a2v1d6m9i1l'),
+    ('b6c7o8u9n1t2r3y4L', 'Travel Diaries', 'Embark on a journey to breathtaking destinations around the world.', '2023-03-25 15:40:00', 'traveldiaries', '/images/channel012.jpg', 'English', 'Global', true, true, false, false, 'unlisted', 'Travel', 'e1m3i9l2y4w5i0l'),
+    ('c3o4u5n6t7r8y9S', 'Planet Earth Wonders', 'Explore the wonders of our beautiful planet and its ecosystems.', '2023-03-30 18:15:00', 'earthwonders', '/images/channel013.jpg', 'English', 'Earth', true, true, false, false, 'public', 'Nature', 'w9i0l8l3i2a4m5w'),
+    ('que23his21h2hws', 'Magical Moments', 'Capturing and sharing magical moments from everyday life.', '2023-04-05 09:30:00', 'magicalmoments', '/images/channel014.jpg', 'English', 'US', true, true, false, false, 'private', 'Lifestyle', 's5u3s6a9n2d0a2v'),
+    ('m8i7n6d9f5u4l0l', 'Mindful Living', 'Embrace a mindful and intentional approach to life.', '2023-04-10 12:55:00', 'mindfulliving', '/images/channel015.jpg', 'English', 'Global', true, true, false, false, 'public', 'Lifestyle', 's5u3s6a9n2d0a2v');
 
-INSERT INTO Subscribe (channelID, subscriberID, subscriptionDate)
+-- Subscriptions
+INSERT INTO Subscribe (channelID, subscriberID, subscriptionDate) VALUES
+    ('v1a2d3e4r5i6d7', 'v2g4o5o6g7l8e9a0c', '2023-07-05 12:30:00'),
+    ('v1a2d3e4r5i6d7', 'v1e0n7n6i8f9e1r', '2023-07-10 13:45:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v2g4o5o6g7l8e9a0c', '2023-07-15 14:00:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v1e0n7n6i8f9e1r', '2023-07-20 15:15:00'),
+    ('v9i0e1w2e3r4v5i6e', 'v8i7c6h9r5i4s0l', '2023-07-25 16:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v1m3i9l2y4d5a0v', '2023-08-15 14:15:00'),
+    ('v3i4e5w6e9r2v3i4e', 'm8i7n6d9f5u4l0l', '2023-08-30 15:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v8i7c6h9r5i4s0l', '2023-09-01 15:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'c3o4u5n6t7r8y9S', '2023-09-18 16:45:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v2g4o5o6g7l8e9a0c', '2023-09-20 18:00:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v1e0n7n6i8f9e1r', '2023-09-25 19:15:00'),
+    ('v3i4e5w6e9r2v3i4e', 'v9i0l8l3i2a4m5w', '2023-10-01 20:30:00'),
+    ('v3i4e5w6e9r2v3i4e', 'que23his21h2hws', '2023-10-10 21:45:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v1a2d3e4r5i6d7', '2023-06-01 08:00:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v9i0e1w2e3r4v5i6e', '2023-06-02 10:15:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v3i4e5w6e9r2v3i4e', '2023-06-05 12:30:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v4a2l1e9x6c9h8e', '2023-06-07 14:45:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v1m3i9l2y4d5a0v', '2023-06-12 19:15:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v1e0n7n6i8f9e1r', '2023-06-15 21:30:00'),
+    ('v2g4o5o6g7l8e9a0c', 'm8i7n6d9f5u4l0l', '2023-06-23 04:15:00'),
+    ('v2g4o5o6g7l8e9a0c', 'que23his21h2hws', '2023-07-05 06:30:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v5u3s6a9n2d0a2v', '2023-08-10 08:45:00'),
+    ('v2g4o5o6g7l8e9a0c', 'c3o4u5n6t7r8y9S', '2023-09-15 11:00:00'),
+    ('v2g4o5o6g7l8e9a0c', 'v9i0l8l3i2a4m5w', '2023-10-20 13:15:00'),
+    ('v4a2l1e9x6c9h8e', 'v2g4o5o6g7l8e9a0c', '2023-06-06 15:45:00'),
+    ('v1e0n7n6i8f9e1r', 'v2g4o5o6g7l8e9a0c', '2023-06-07 17:00:00'),
+    ('v1e0n7n6i8f9e1r', 'v1a0u9r7a6a5n2d', '2023-06-08 18:15:00'),
+    ('v1e0n7n6i8f9e1r', 'v8i7c6h9r5i4s0l', '2023-06-09 19:30:00'),
+    ('v1e0n7n6i8f9e1r', 'm8i7n6d9f5u4l0l', '2023-06-10 20:45:00'),
+    ('v1a0u9r7a6a5n2d', 'v1e0n7n6i8f9e1r', '2023-06-11 22:00:00'),
+    ('v1a0u9r7a6a5n2d', 'v8i7c6h9r5i4s0l', '2023-06-12 23:15:00'),
+    ('v8i7c6h9r5i4s0l', 'v1a0u9r7a6a5n2d', '2023-06-13 10:30:00'),
+    ('v8i7c6h9r5i4s0l', 'm8i7n6d9f5u4l0l', '2023-06-14 11:45:00'),
+    ('m8i7n6d9f5u4l0l', 'que23his21h2hws', '2023-06-15 13:00:00'),
+    ('m8i7n6d9f5u4l0l', 'v5u3s6a9n2d0a2v', '2023-06-16 14:15:00'),
+    ('m8i7n6d9f5u4l0l', 'c3o4u5n6t7r8y9S', '2023-06-17 15:30:00'),
+    ('m8i7n6d9f5u4l0l', 'v9i0l8l3i2a4m5w', '2023-06-18 16:45:00'),
+    ('v5u3s6a9n2d0a2v', 'v1e0n7n6i8f9e1r', '2023-06-19 09:00:00'),
+    ('v5u3s6a9n2d0a2v', 'v8i7c6h9r5i4s0l', '2023-06-20 10:15:00'),
+    ('v9i0l8l3i2a4m5w', 'v2g4o5o6g7l8e9a0c', '2023-06-21 11:30:00'),
+    ('v9i0l8l3i2a4m5w', 'v4a2l1e9x6c9h8e', '2023-06-22 12:45:00'),
+    ('v9i0l8l3i2a4m5w', 'b6c7o8u9n1t2r3y4L', '2023-06-23 14:00:00');
+
+-- YPP & Monetization
+INSERT INTO YPP (channelID, YPPID, acceptedAt)
 VALUES
-    ('v1a2d3e4r5i6d7', 'v9i0e1w2e3r4v5i6e', '2023-03-05 08:30:00'),
-    ('v1a2d3e4r5i6d7', 'v3i4e5w6e9r2v3i4e', '2023-03-18 10:20:00'),
-    ('v1a2d3e4r5i6d7', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
-    ('v1a2d3e4r5i6d7', 'v1a0u9r7a6a5n2d', '2023-04-11 14:20:00'),
-    ('v1a2d3e4r5i6d7', 'v5u3s6a9n2d0a2v', '2023-04-23 16:10:00'),
-    ('v1a2d3e4r5i6d7', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
-    ('v1a2d3e4r5i6d7', 'v4a2l1e9x6c9h8e', '2023-05-17 20:30:00'),
-    ('v1a2d3e4r5i6d7', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v9i0l8l3i2a4m5w', '2023-04-23 16:10:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
-    ('v9i0e1w2e3r4v5i6e', 'v4a2l1e9x6c9h8e', '2023-05-11 19:55:00'),
-    ('v3i4e5w6e9r2v3i4e', 'v1m3i9l2y4d5a0v', '2023-03-30 12:30:00'),
-    ('v3i4e5w6e9r2v3i4e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
-    ('v3i4e5w6e9r2v3i4e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
-    ('v3i4e5w6e9r2v3i4e', 'v9i0l8l3i2a4m5w', '2023-05-17 20:30:00'),
-    ('v3i4e5w6e9r2v3i4e', 'v1a0u9r7a6a5n2d', '2023-06-04 23:45:00'),
-    ('v4a2l1e9x6c9h8e', 'v8i7c6h9r5i4s0l', '2023-03-30 12:30:00'),
-    ('v4a2l1e9x6c9h8e', 'v5u3s6a9n2d0a2v', '2023-04-11 14:20:00'),
-    ('v4a2l1e9x6c9h8e', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
-    ('v4a2l1e9x6c9h8e', 'v1a0u9r7a6a5n2d', '2023-06-04 23:45:00'),
-    ('v4a2l1e9x6c9h8e', 'v9i0l8l3i2a4m5w', '2023-06-20 14:10:00'),
-    ('v1m3i9l2y4d5a0v', 'v1e0n7n6i8f9e1r', '2023-05-05 18:40:00'),
-    ('v1m3i9l2y4d5a0v', 'v5u3s6a9n2d0a2v', '2023-05-11 19:55:00'),
-    ('v1m3i9l2y4d5a0v', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
-    ('v1e0n7n6i8f9e1r', 'v5u3s6a9n2d0a2v', '2023-05-11 19:55:00'),
-    ('v1e0n7n6i8f9e1r', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
-    ('v1e0n7n6i8f9e1r', 'v8i7c6h9r5i4s0l', '2023-06-20 14:10:00'),
-    ('v1a0u9r7a6a5n2d', 'v9i0l8l3i2a4m5w', '2023-06-04 23:45:00'),
-    ('v1a0u9r7a6a5n2d', 'v1e0n7n6i8f9e1r', '2023-06-20 14:10:00'),
-    ('v1a0u9r7a6a5n2d', 'v8i7c6h9r5i4s0l', '2023-07-02 16:30:00'),
-    ('v8i7c6h9r5i4s0l', 'v5u3s6a9n2d0a2v', '2023-06-20 14:10:00'),
-    ('v8i7c6h9r5i4s0l', 'v9i0l8l3i2a4m5w', '2023-07-02 16:30:00'),
-    ('v5u3s6a9n2d0a2v', 'v9i0l8l3i2a4m5w', '2023-07-02 16:30:00'),
-    ('v5u3s6a9n2d0a2v', 'v1e0n7n6i8f9e1r', '2023-07-15 18:50:00'),
-    ('v9i0l8l3i2a4m5w', 'v8i7c6h9r5i4s0l', '2023-07-15 18:50:00');
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', '2023-05-15 14:30:00'),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', '2023-05-20 16:45:00'),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', '2023-06-10 09:00:00'),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', '2023-06-20 11:15:00'),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', '2023-08-05 13:30:00'),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', '2023-08-15 15:45:00'),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', '2023-09-05 18:00:00'),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', '2023-09-15 20:15:00'),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', '2023-09-25 22:30:00'),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', '2023-09-30 09:45:00');
 
-INSERT INTO Video (
-    videoID,
-    publishedAt,
-    title,
-    description,
-    thumbnails,
-    caption,
-    duration,
-    dimension,
-    status,
-    visibility,
-    fileDetails,
-    suggestions,
-    localizations,
-    channelID
-) VALUES
-('video125', '2023-11-10 08:30:00', 'Enchanted Forest Waterfalls', 'Explore hidden waterfalls in a magical forest adventure.', 'thumbnail123.jpg', 'Savor the flavor in no time!  #QuickRecipes #Foodie', '00:05:30', '1080p', true, true, 'File123.mp4', 'Suggestions123', 'English', '987654321'),
-
-('video126', '2023-11-09 13:15:00', 'Epic Space Journey', 'Voyage through cosmic wonders beyond our solar system.', 'thumbnail456.jpg', 'Rise, shine, and stretch! #MorningYoga #WellnessWednesday', '00:03:45', '720p', true, true, 'File456.mp4', 'Suggestions456', 'Spanish', '987654322'),
-
-('video127', '2023-11-08 16:55:00', 'Gourmet Desserts Delight', 'Indulge in the art of creating and savoring gourmet desserts.', 'thumbnail789.jpg', 'Upgrade your space on a budget! #DIYHomeDecor #HomeMakeover', '00:07:10', '1080p', true, false, 'File789.mp4', 'Suggestions789', 'French', '987654323'),
-
-('video128', '2023-11-07 11:45:00', 'Urban Jungle: Street Art', 'Dive into vibrant street art transforming urban spaces.', 'thumbnailABC.jpg', 'Kickstart your mornings with a rejuvenating yoga routine. Boost energy, improve flexibility, and set a positive tone for the day ahead.', '00:02:30', '720p', true, true, 'FileABC.mp4', 'SuggestionsABC', 'German', '987654324'),
-
-('video129', '2023-11-06 19:40:00', 'Yoga HIIT Fusion', 'Experience a unique fitness fusion of yoga and high-intensity training.', 'thumbnailXYZ.jpg', 'Snap, edit, share! #PhotographyTips #MobilePhotography', '00:04:20', '1080p', true, false, 'FileXYZ.mp4', 'SuggestionsXYZ', 'Italian', '987654325'),
-
-('video130', '2023-11-05 09:30:00', 'Tech Unboxing Extravaganza', 'Unbox the latest gadgets and witness cutting-edge technology.', 'thumbnail678.jpg', 'Sweat it out in 10 minutes! #HomeWorkout #FitnessMotivation', '00:06:15', '720p', true, true, 'File678.mp4', 'Suggestions678', 'German', '987654321'),
-
-('video131', '2023-11-04 14:15:00', 'Thrilling Ziplining Adventure', 'Soar across mountain peaks on an exhilarating ziplining ride.', 'thumbnail910.jpg', 'Geek out with the latest tech! #TechTalk #GadgetLover', '00:08:20', '1080p', true, true, 'File910.mp4', 'Suggestions910', 'French', '987654322'),
-
-('video132', '2023-11-03 17:45:00', 'DIY Home Decor Magic', 'Transform spaces with creative and budget-friendly DIY home decor.', 'thumbnail1112.jpg', 'Find peace in nature’’s symphony. #Meditation #NatureSounds', '00:04:50', '720p', true, false, 'File1112.mp4', 'Suggestions1112', 'Italian', '987654323'),
-
-('video133', '2023-11-02 11:30:00', 'Game Night Fun', 'Explore a variety of board games for a night of laughter and joy.', 'thumbnail1314.jpg', 'Bookworms, unite! #BookReview #ReadingList', '00:03:30', '1080p', true, true, 'File1314.mp4', 'Suggestions1314', 'Spanish', '987654324'),
-
-('video134', '2023-11-01 17:25:00', 'Mind-Blowing Magic Illusions', 'Witness jaw-dropping magic tricks and mind-bending illusions.', 'thumbnail1516.jpg', 'Embrace tranquility within. #Mindfulness #MeditationMagic', '00:07:05', '720p', true, false, 'File1516.mp4', 'Suggestions1516', 'English', '987654325');
-
-
-INSERT INTO YPP (channelID, YPPID, eligibilityStatus)
-VALUES
-    ('987654321', 'YPPID001', true),
-    ('987654322', 'YPPID002', false),
-    ('987654323', 'YPPID003', true),
-    ('987654324', 'YPPID004', false),
-    ('987654325', 'YPPID005', true),
-    ('987654326', 'YPPID006', false),
-    ('987654327', 'YPPID007', true),
-    ('987654328', 'YPPID008', false),
-    ('987654329', 'YPPID009', true),
-    ('987654320', 'YPPID010', false);
-
-INSERT INTO Members_only_Video (
-    videoID,
-    memberLevel,
-    channelID,
-    YPPID
-) VALUES
-('video125', 'Gold', '987654321', 'YPPID001'),
-('video126', 'Silver', '987654322', 'YPPID002'),
-('video127', 'Platinum', '987654323', 'YPPID003'),
-('video128', 'Gold', '987654324', 'YPPID004'),
-('video129', 'Silver', '987654325', 'YPPID005'),
-('video130', 'Platinum', '987654326', 'YPPID006'),
-('video131', 'Gold', '987654327', 'YPPID007'),
-('video132', 'Silver', '987654328', 'YPPID008'),
-('video133', 'Platinum', '987654329', 'YPPID009'),
-('video134', 'Gold', '987654320', 'YPPID010');
-
-
-INSERT INTO Monetized_Video (videoID, adsType, location, monetizationStatus, channelID, YPPID)
-VALUES
-('video125', 'Skippable', 'United Kingdom', true, '987654323', 'YPPID003'),
-('video126', 'Non-skippable', 'Australia', false, '987654324', 'YPPID004'),
-('video127', 'Display', 'Germany', true, '987654325', 'YPPID005'),
-('video128', 'Bumper', 'France', false, '987654326', 'YPPID006'),
-('video129', 'In-stream', 'Spain', true, '987654327', 'YPPID007'),
-('video130', 'Discovery', 'Italy', false, '987654328', 'YPPID008'),
-('video131', 'Sponsored card', 'Brazil', true, '987654329', 'YPPID009'),
-('video132', 'TrueView', 'India', false, '987654320', 'YPPID010'),
-('video133', 'Standard', 'United States', true, '987654321', 'YPPID001'),
-('video134', 'Overlay', 'Canada', true, '987654322', 'YPPID002');
-
-INSERT INTO Comments (
-    commentID,
-    updateTime,
-    publishedTime,
-    moderationStatus,
-    likeCounts,
-    viewerRating,
-    rateStatus,
-    textOriginal,
-    textDisplay,
-    authorChannelUrl,
-    authorProfileImageUrl,
-    authorDisplayName,
-    channelID,
-    videoID
-) VALUES
-('comment1', '12:30:00', '12:00:00', 'Approved', '15', '5 stars', true, 'This is a great video!', 'Great video!', 'http://channel1.com', 'http://profile1.jpg', 'User1', '987654321', 'video125'),
-
-('comment2', '13:45:00', '13:30:00', 'Pending', '8', '4 stars', false, 'I have a question about the content.', 'Question about the content.', 'http://channel2.com', 'http://profile2.jpg', 'User2', '987654322', 'video126'),
-
-('comment3', '14:20:00', '14:15:00', 'Approved', '20', '5 stars', true, 'Amazing video! I learned a lot.', 'Learned a lot!', 'http://channel3.com', 'http://profile3.jpg', 'User3', '987654323', 'video127'),
-
-('comment4', '15:10:00', '15:05:00', 'Approved', '10', '3 stars', true, 'Nice content, keep it up!', 'Keep it up!', 'http://channel4.com', 'http://profile4.jpg', 'User4', '987654324', 'video128'),
-
-('comment5', '16:00:00', '15:55:00', 'Approved', '18', '4 stars', true, 'I enjoyed watching this video.', 'Enjoyed the video!', 'http://channel5.com', 'http://profile5.jpg', 'User5', '987654325', 'video129'),
-
-('comment6', '16:50:00', '16:45:00', 'Pending', '12', '4 stars', false, 'Looking forward to more videos!', 'Excited for more!', 'http://channel6.com', 'http://profile6.jpg', 'User6', '987654326', 'video130'),
-
-('comment7', '17:40:00', '17:35:00', 'Approved', '25', '5 stars', true, 'This content is so informative.', 'Informative content!', 'http://channel7.com', 'http://profile7.jpg', 'User7', '987654327', 'video131'),
-
-('comment8', '18:30:00', '18:25:00', 'Pending', '8', '3 stars', false, 'Can you make a video about cooking?', 'Request for cooking video.', 'http://channel8.com', 'http://profile8.jpg', 'User8', '987654328', 'video132'),
-
-('comment9', '19:20:00', '19:15:00', 'Approved', '19', '4 stars', true, 'Great job on the video editing!', 'Impressed with the editing!', 'http://channel9.com', 'http://profile9.jpg', 'User9', '987654329', 'video133'),
-
-('comment10', '20:10:00', '20:05:00', 'Approved', '14', '4 stars', true, 'I love the background music!', 'Great choice of music!', 'http://channel10.com', 'http://profile10.jpg', 'User10', '987654320', 'video134'),
-
-('comment11', '21:00:00', '20:55:00', 'Pending', '10', '3 stars', false, 'Can you provide more details on the topic?', 'Request for more details.', 'http://channel11.com', 'http://profile11.jpg', 'User11', '987654321', 'video125'),
-
-('comment12', '21:50:00', '21:45:00', 'Approved', '16', '4 stars', true, 'I appreciate the effort in making this video.', 'Appreciate the effort!', 'http://channel12.com', 'http://profile12.jpg', 'User12', '987654322', 'video126'),
-
-('comment13', '22:40:00', '22:35:00', 'Approved', '22', '5 stars', true, 'This video deserves more views!', 'Deserves more views!', 'http://channel13.com', 'http://profile13.jpg', 'User13', '987654323', 'video127'),
-
-('comment14', '23:30:00', '23:25:00', 'Pending', '13', '3 stars', false, 'Can you share the sources used in this video?', 'Request for sources.', 'http://channel14.com', 'http://profile14.jpg', 'User14', '987654324', 'video128'),
-
-('comment15', '00:20:00', '00:15:00', 'Approved', '17', '4 stars', true, 'I found this video very helpful.', 'Very helpful video!', 'http://channel15.com', 'http://profile15.jpg', 'User15', '987654325', 'video129'),
-
-('comment16', '01:10:00', '01:05:00', 'Approved', '14', '4 stars', true, 'The information provided is top-notch!', 'Top-notch information!', 'http://channel16.com', 'http://profile16.jpg', 'User16', '987654326', 'video130'),
-
-('comment17', '02:00:00', '01:55:00', 'Pending', '9', '3 stars', false, 'Could you make a video on advanced topics?', 'Request for advanced topics video.', 'http://channel17.com', 'http://profile17.jpg', 'User17', '987654327', 'video131'),
-
-('comment18', '02:50:00', '02:45:00', 'Approved', '21', '5 stars', true, 'I have learned so much from your videos!', 'Learned a lot from your videos!', 'http://channel18.com', 'http://profile18.jpg', 'User18', '987654328', 'video132'),
-
-('comment19', '03:40:00', '03:35:00', 'Approved', '18', '4 stars', true, 'This video made my day!', 'Made my day!', 'http://channel19.com', 'http://profile19.jpg', 'User19', '987654329', 'video133'),
-
-('comment20', '04:30:00', '04:25:00', 'Pending', '11', '3 stars', false, 'Could you provide more examples?', 'Request for more examples.', 'http://channel20.com', 'http://profile20.jpg', 'User20', '987654320', 'video134'),
-
-('comment21', '05:20:00', '05:15:00', 'Approved', '15', '4 stars', true, 'I appreciate the clear explanations!', 'Clear explanations appreciated!', 'http://channel21.com', 'http://profile21.jpg', 'User21', '987654321', 'video125'),
-
-('comment22', '06:10:00', '06:05:00', 'Approved', '23', '5 stars', true, 'The visuals in your videos are stunning!', 'Stunning visuals!', 'http://channel22.com', 'http://profile22.jpg', 'User22', '987654322', 'video126'),
-
-('comment23', '07:00:00', '06:55:00', 'Pending', '16', '4 stars', false, 'Can you make a video on recent developments?', 'Request for recent developments video.', 'http://channel23.com', 'http://profile23.jpg', 'User23', '987654323', 'video127'),
-
-('comment24', '07:50:00', '07:45:00', 'Approved', '19', '4 stars', true, 'Your videos always inspire me!', 'Always inspiring!', 'http://channel24.com', 'http://profile24.jpg', 'User24', '987654324', 'video128'),
-
-('comment25', '08:40:00', '08:35:00', 'Approved', '20', '5 stars', true, 'I have recommended your channel to my friends!', 'Recommended to friends!', 'http://channel25.com', 'http://profile25.jpg', 'User25', '987654325', 'video129'),
-
-('comment26', '09:30:00', '09:25:00', 'Pending', '12', '3 stars', false, 'Could you make a video on this specific topic?', 'Request for specific topic video.', 'http://channel26.com', 'http://profile26.jpg', 'User26', '987654326', 'video130'),
-
-('comment27', '10:20:00', '10:15:00', 'Approved', '17', '4 stars', true, 'I have learned a lot from your tutorials!', 'Learned a lot from tutorials!', 'http://channel27.com', 'http://profile27.jpg', 'User27', '987654327', 'video131'),
-
-('comment28', '11:10:00', '11:05:00', 'Approved', '22', '5 stars', true, 'Your content is always so engaging!', 'Engaging content!', 'http://channel28.com', 'http://profile28.jpg', 'User28', '987654328', 'video132'),
-
-('comment29', '12:00:00', '11:55:00', 'Pending', '14', '4 stars', false, 'Can you provide more details on the techniques used?', 'Request for technique details.', 'http://channel29.com', 'http://profile29.jpg', 'User29', '987654329', 'video133'),
-
-('comment30', '12:50:00', '12:45:00', 'Approved', '16', '4 stars', true, 'Your videos are a valuable resource!', 'Valuable resource!', 'http://channel30.com', 'http://profile30.jpg', 'User30', '987654320', 'video134');
-
-
-INSERT INTO Engage (viewerID, videoID, usedDevice, watchDuration, isSaved, isDisliked, isLiked)
-VALUES
-    ('viewer001', 'video125', 'Desktop', '01:30:00', true, false, true),
-    ('viewer001', 'video126', 'Mobile', '00:45:00', true, false, false),
-    ('viewer001', 'video127', 'Tablet', '02:15:00', false, false, true),
-    ('viewer001', 'video128', 'Desktop', '01:00:00', false, true, false),
-    ('viewer001', 'video129', 'Mobile', '00:35:00', true, false, false),
-    ('viewer001', 'video130', 'Tablet', '01:20:00', true, true, false),
-    ('viewer001', 'video131', 'Desktop', '02:30:00', true, false, true),
-    ('viewer001', 'video132', 'Mobile', '00:55:00', false, true, false),
-    ('viewer001', 'video133', 'Tablet', '01:10:00', false, false, true),
-    ('viewer001', 'video134', 'Desktop', '01:45:00', true, false, true),
-    ('viewer002', 'video125', 'Desktop', '01:15:00', true, false, true),
-    ('viewer002', 'video126', 'Mobile', '00:40:00', true, false, false),
-    ('viewer002', 'video127', 'Tablet', '02:00:00', false, false, true),
-    ('viewer002', 'video128', 'Desktop', '01:10:00', false, true, false),
-    ('viewer002', 'video129', 'Mobile', '00:30:00', true, false, false),
-    ('viewer002', 'video130', 'Tablet', '01:40:00', true, true, false),
-    ('viewer002', 'video131', 'Desktop', '02:15:00', true, false, true),
-    ('viewer002', 'video132', 'Mobile', '00:50:00', false, true, false),
-    ('viewer002', 'video133', 'Tablet', '01:05:00', false, false, true),
-    ('viewer002', 'video134', 'Desktop', '01:30:00', true, false, true),
-    ('viewer003', 'video125', 'Desktop', '01:00:00', true, true, false),
-    ('viewer003', 'video126', 'Mobile', '00:55:00', false, true, true),
-    ('viewer003', 'video127', 'Tablet', '01:20:00', false, false, true),
-    ('viewer003', 'video128', 'Desktop', '02:30:00', true, false, false),
-    ('viewer003', 'video129', 'Mobile', '00:35:00', true, false, true),
-    ('viewer003', 'video130', 'Tablet', '01:15:00', false, true, false),
-    ('viewer003', 'video131', 'Desktop', '01:45:00', true, false, false),
-    ('viewer003', 'video132', 'Mobile', '00:40:00', false, true, false),
-    ('viewer003', 'video133', 'Tablet', '01:10:00', false, false, true),
-    ('viewer003', 'video134', 'Desktop', '02:00:00', true, true, false);
-
-INSERT INTO Video_Tags (videoID, videoTags)
-VALUES
-    ('video125', 'Horror'),
-    ('video126', 'Game'),
-    ('video127', 'Sport'),
-    ('video128', 'TaylorSwift'),
-    ('video129', 'Swimming'),
-    ('video130', 'Study'),
-    ('video131', 'Law'),
-    ('video132', 'Database'),
-    ('video133', 'AI'),
-    ('video134', 'SIIT');
-INSERT INTO Monetization_Feature (featureName, description)
+INSERT INTO MonetizationFeature (featureName, description)
 VALUES
     ('AdRevenue', 'Earn revenue from Watch Page ads and Shorts Feed ads.'),
     ('Shopping', 'Your fans can browse and buy products from your store, or products you tag from other brands through the YouTube Shopping affiliate program.'),
@@ -405,7 +229,7 @@ VALUES
     ('PremiumContentAccess', 'Charge viewers for access to premium content.'),
     ('PremiumMusic', 'Monetize your music content through premium features.');
 
-INSERT INTO MF_requirement (featureName, MFrequirement)
+INSERT INTO MntFeature_requirement (featureName, mntFeature_requirement)
 VALUES
     ('AdRevenue', '1,000 subscribers'),
     ('AdRevenue', '4,000 public watch hours on long-form videos in the last 365 days'),
@@ -444,40 +268,40 @@ VALUES
     ('PremiumContentAccess', 'Create content that meets our advertiser-friendly content guidelines'),
     ('PremiumMusic', 'Monetize your music content through premium features');
   
-INSERT INTO Manage_MF (channelID, YPPID, MFFeatureName, isEnable)
+INSERT INTO Manage_MntFeature (YPP_channelID, YPP_YPPID, mntFeature_featureName, isEnable)
 VALUES
-    ('987654321', 'YPPID001', 'SuperThanks', 1),
-    ('987654321', 'YPPID001', 'Shopping', 0),
-    ('987654321', 'YPPID001', 'YouTubePremium', 1),
-    ('987654322', 'YPPID002', 'AdRevenue', 0),
-    ('987654322', 'YPPID002', 'SuperChatSuperStickers', 1),
-    ('987654322', 'YPPID002', 'AdRevenueShorts', 0),
-    ('987654323', 'YPPID003', 'ShoppingAffiliate', 1),
-    ('987654323', 'YPPID003', 'ChannelMemberships', 0),
-    ('987654323', 'YPPID003', 'PremiumContentAccess', 1),
-    ('987654324', 'YPPID004', 'PremiumMusic', 0),
-    ('987654324', 'YPPID004', 'SuperThanks', 1),
-    ('987654324', 'YPPID004', 'Shopping', 0),
-    ('987654325', 'YPPID005', 'SuperChatSuperStickers', 1),
-    ('987654325', 'YPPID005', 'AdRevenueShorts', 0),
-    ('987654325', 'YPPID005', 'ShoppingAffiliate', 1),
-    ('987654326', 'YPPID006', 'YouTubePremium', 0),
-    ('987654326', 'YPPID006', 'AdRevenue', 1),
-    ('987654326', 'YPPID006', 'SuperThanks', 0),
-    ('987654327', 'YPPID007', 'AdRevenueShorts', 1),
-    ('987654327', 'YPPID007', 'PremiumContentAccess', 0),
-    ('987654327', 'YPPID007', 'Shopping', 1),
-    ('987654328', 'YPPID008', 'PremiumMusic', 0),
-    ('987654328', 'YPPID008', 'SuperChatSuperStickers', 1),
-    ('987654328', 'YPPID008', 'AdRevenueShorts', 0),
-    ('987654329', 'YPPID009', 'ShoppingAffiliate', 1),
-    ('987654329', 'YPPID009', 'YouTubePremium', 0),
-    ('987654329', 'YPPID009', 'AdRevenue', 1),
-    ('987654320', 'YPPID010', 'ChannelMemberships', 0),
-    ('987654320', 'YPPID010', 'PremiumContentAccess', 1),
-    ('987654320', 'YPPID010', 'SuperChatSuperStickers', 0);
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', 'SuperThanks', 1),
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', 'Shopping', 0),
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', 'YouTubePremium', 1),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', 'AdRevenue', 0),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', 'SuperChatSuperStickers', 1),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', 'AdRevenueShorts', 0),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', 'ShoppingAffiliate', 1),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', 'ChannelMemberships', 0),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', 'PremiumContentAccess', 1),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', 'PremiumMusic', 0),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', 'SuperThanks', 1),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', 'Shopping', 0),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', 'SuperChatSuperStickers', 1),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', 'AdRevenueShorts', 0),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', 'ShoppingAffiliate', 1),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', 'YouTubePremium', 0),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', 'AdRevenue', 1),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', 'SuperThanks', 0),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', 'AdRevenueShorts', 1),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', 'PremiumContentAccess', 0),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', 'Shopping', 1),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', 'PremiumMusic', 0),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', 'SuperChatSuperStickers', 1),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', 'AdRevenueShorts', 0),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', 'ShoppingAffiliate', 1),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', 'YouTubePremium', 0),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', 'AdRevenue', 1),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', 'ChannelMemberships', 0),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', 'PremiumContentAccess', 1),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', 'SuperChatSuperStickers', 0);
 
-INSERT INTO Revenue_Receiving_Method (methodName, isThirdParty)
+INSERT INTO RevenueReceivingMethod (methodName, isThirdParty)
 VALUES
     ('AdSense', false),
     ('MCN_Payments', true),
@@ -490,7 +314,7 @@ VALUES
     ('Donations', true),
     ('Product_Placements', true);
     
-INSERT INTO RRM_paymentOption (methodName, RRMpaymentOption)
+INSERT INTO RRMethod_paymentOption (methodName, RRMethod_paymentOption)
 VALUES
     ('AdSense', 'Cheque'),
     ('AdSense', 'Bank Transfer'),
@@ -515,42 +339,229 @@ VALUES
     ('Product_Placements', 'Wire Transfer'),
     ('Product_Placements', 'Check Payment');
 
--- Insert data into Choose_RRM table with more realistic-looking fictional addresses
-INSERT INTO Choose_RRM (channelID, YPPID, RRMMethodName, addressNumber, road, district, province, postalCode)
+INSERT INTO Choose_RRMethod (YPP_channelID, YPP_YPPID, RRMethod_methodName, addressNumber, road, district, province, postalCode, country)
 VALUES
-    ('987654321', 'YPPID001', 'AdSense', '123', 'Main Street', 'Downtown', 'Metropolis', '12345'),
-    ('987654322', 'YPPID002', 'MCN_Payments', '456', 'Broadway', 'Uptown', 'Cityville', '56789'),
-    ('987654323', 'YPPID003', 'Shopping_Payments', '789', 'Market St', 'Midtown', 'Villagetown', '98765'),
-    ('987654324', 'YPPID004', 'AdSense', '101', 'Oak Avenue', 'Suburbia', 'Townsville', '54321'),
-    ('987654325', 'YPPID005', 'Sponsorships', '202', 'Pine Street', 'Greenfield', 'Meadowland', '67890'),
-    ('987654326', 'YPPID006', 'Direct_Sales', '303', 'Cedar Road', 'Hillsborough', 'Hilltopia', '45678'),
-    ('987654327', 'YPPID007', 'Affiliate_Marketing', '404', 'Elm Street', 'Riverside', 'Riverdale', '23456'),
-    ('987654328', 'YPPID008', 'Crypto_Payments', '505', 'Maple Avenue', 'Lakeview', 'Lakeland', '78901'),
-    ('987654329', 'YPPID009', 'Donations', '606', 'Walnut Street', 'Harborside', 'Harbor City', '01234'),
-    ('987654320', 'YPPID010', 'Product_Placements', '707', 'Birch Road', 'Sunnyside', 'Sunnyville', '56789'),
-    ('987654321', 'YPPID001', 'Shopping_Payments', '808', 'Cherry Street', 'Hometown', 'Homeville', '34567'),
-    ('987654322', 'YPPID002', 'AdMob', '909', 'Peach Avenue', 'Heights', 'Heightstown', '89012'),
-    ('987654323', 'YPPID003', 'Sponsorships', '111', 'Plum Road', 'Meadowside', 'Meadowsville', '23456'),
-    ('987654324', 'YPPID004', 'Direct_Sales', '222', 'Orange Street', 'Valley', 'Valleyview', '78901'),
-    ('987654325', 'YPPID005', 'Affiliate_Marketing', '333', 'Lemon Avenue', 'Countryside', 'Countrytown', '34567'),
-    ('987654326', 'YPPID006', 'Crypto_Payments', '444', 'Banana Road', 'Forestville', 'Forest City', '89012'),
-    ('987654327', 'YPPID007', 'Donations', '555', 'Grape Street', 'Seaside', 'Seaville', '23456'),
-    ('987654328', 'YPPID008', 'Product_Placements', '666', 'Watermelon Avenue', 'Mountainside', 'Mountainview', '78901'),
-    ('987654329', 'YPPID009', 'AdSense', '777', 'Kiwi Road', 'Rural', 'Ruraltown', '34567'),
-    ('987654320', 'YPPID010', 'MCN_Payments', '888', 'Blueberry Street', 'Suburban', 'Suburbantown', '89012');
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', 'AdSense', '123', 'Main Street', 'Downtown', 'Metropolis', '12345', 'United States'),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', 'MCN_Payments', '456', 'Broadway', 'Uptown', 'Cityville', '56789', 'Canada'),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', 'Shopping_Payments', '789', 'Market Street', 'Midtown', 'Villagetown', '98765', 'United Kingdom'),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', 'AdSense', '101', 'Oak Avenue', 'Suburbia', 'Townsville', '54321', 'Australia'),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', 'Sponsorships', '202', 'Pine Street', 'Greenfield', 'Meadowland', '67890', 'Germany'),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', 'Direct_Sales', '303', 'Cedar Road', 'Hillsborough', 'Hilltopia', '45678', 'France'),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', 'Affiliate_Marketing', '404', 'Elm Street', 'Riverside', 'Riverdale', '23456', 'Italy'),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', 'Crypto_Payments', '505', 'Maple Avenue', 'Lakeview', 'Lakeland', '78901', 'Spain'),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', 'Donations', '606', 'Walnut Street', 'Harborside', 'Harbor City', '01234', 'Japan'),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', 'Product_Placements', '707', 'Birch Road', 'Sunnyside', 'Sunnyville', '56789', 'South Korea'),
+    ('v1a2d3e4r5i6d7', 'YPP1234567890', 'Shopping_Payments', '808', 'Cherry Street', 'Hometown', 'Homeville', '34567', 'China'),
+    ('v9i0e1w2e3r4v5i6e', 'YPP2345678901', 'AdMob', '909', 'Peach Avenue', 'Heights', 'Heightstown', '89012', 'India'),
+    ('v3i4e5w6e9r2v3i4e', 'YPP3456789012', 'Sponsorships', '111', 'Plum Road', 'Meadowside', 'Meadowsville', '23456', 'Brazil'),
+    ('v2g4o5o6g7l8e9a0c', 'YPP4567890123', 'Direct_Sales', '222', 'Orange Street', 'Valley', 'Valleyview', '78901', 'Russia'),
+    ('v4a2l1e9x6c9h8e', 'YPP5678901234', 'Affiliate_Marketing', '333', 'Lemon Avenue', 'Countryside', 'Countrytown', '34567', 'Mexico'),
+    ('b6c7o8u9n1t2r3y4L', 'YPP6789012345', 'Crypto_Payments', '444', 'Banana Road', 'Forestville', 'Forest City', '89012', 'South Africa'),
+    ('v1m3i9l2y4d5a0v', 'YPP7890123456', 'Donations', '555', 'Grape Street', 'Seaside', 'Seaville', '23456', 'Nigeria'),
+    ('v1e0n7n6i8f9e1r', 'YPP8901234567', 'Product_Placements', '666', 'Watermelon Avenue', 'Mountainside', 'Mountainview', '78901', 'Turkey'),
+    ('v1a0u9r7a6a5n2d', 'YPP9012345678', 'AdSense', '777', 'Kiwi Road', 'Rural', 'Ruraltown', '34567', 'Argentina'),
+    ('v8i7c6h9r5i4s0l', 'YPP0123456789', 'MCN_Payments', '888', 'Blueberry Street', 'Suburban', 'Suburbantown', '89012', 'Egypt');
 
-INSERT INTO `Video Ads` (videoAdsID, length, objective, videoFormatType, targetLocation, targetLanguage, budget, googleAdsID) VALUES
-('video135', '00:20:25', 'Increase views and engagement on YouTube', 'Skippable video ads', 'All countries and territories', 'All Languages', 10000.00, 'ads_acc_1'),
-('video136', '00:10:24', 'Get more calls', 'Skippable video ads', 'Thailand', 'Thai', 10000.00, 'ads_acc_1'),
-('video137', '00:05:05', 'Get more customers to visit your location', 'Skippable video ads', 'Thailand', 'Thai', 50000.00, 'ads_acc_2'),
-('video138', '00:00:12', 'Increase views and engagement on YouTube', 'Non-skippable video ads', 'Thailand', 'Thai', 10000.00, 'ads_acc_3'),
-('video139', '00:14:25', 'Get more calls', 'Skippable video ads', 'Thailand', 'Thai', 10000.00, 'ads_acc_4'),
-('video140', '00:08:20', 'Get more customers to visit your location', 'Skippable video ads', 'Thailand', 'Thai', 1000000.00, 'ads_acc_4'),
-('video141', '00:00:05', 'Get more calls', 'Bumper ads', 'All countries and territories', 'All Languages', 90000.00, 'ads_acc_5'),
-('video142', '00:02:58', 'Increase views and engagement on YouTube', 'Skippable video ads', 'All countries and territories', 'All Languages', 10000.00, 'ads_acc_6'),
-('video143', '00:34:09', 'Increase views and engagement on YouTube', 'Skippable video ads', 'Thailand', 'Thai', 10000.00, 'ads_acc_6'),
-('video144', '00:18:03', 'Increase sales or leads on your website', 'Skippable video ads', 'All countries and territories', 'All Languages', 10000000.00, 'ads_acc_6');
+-- Video
+INSERT INTO Video (
+    videoID, publishedAt, title, description, thumbnailUrl, caption, duration, dimension, uploadStatus, visibility, fileDetailUrl, license, madeForKids, channelID
+) VALUES
+    ('dQw4w9WgXcQ', '2023-05-20 08:30:00', 'Ocean Serenity', 'Experience the calming serenity of ocean waves and breathtaking seascapes.', '/thumbnails/ocean_serenity.jpg', true, '00:10:15', '1080p', 'processed', 'public', '/files/ocean_serenity.mp4', 'creativeCommon', false, 'v1a2d3e4r5i6d7'),
+    ('x7Yk19IdtdQ', '2023-06-15 13:15:00', 'Astronomy 101', 'Embark on a journey through the cosmos and unravel the mysteries of the universe.', '/thumbnails/astronomy_101.jpg', true, '00:08:45', '720p', 'processed', 'public', '/files/astronomy_101.mp4', 'youtube', false, 'v9i0e1w2e3r4v5i6e'),
+    ('l7Gh23XkjOQ', '2023-07-10 16:55:00', 'Gourmet Coffee Brewing', 'Master the art of brewing gourmet coffee with expert tips and techniques.', '/thumbnails/gourmet_coffee.jpg', false, '00:06:30', '1080p', 'processed', 'public', '/files/gourmet_coffee.mp4', 'youtube', false, 'v3i4e5w6e9r2v3i4e'),
+    ('a9Js46YbFgI', '2023-08-05 11:45:00', 'Urban Sketching Adventures', 'Explore the beauty of urban landscapes through the art of sketching.', '/thumbnails/urban_sketching.jpg', true, '00:09:20', '720p', 'processed', 'public', '/files/urban_sketching.mp4', 'youtube', false, 'v1m3i9l2y4d5a0v'),
+    ('z5Uo3LkMbCQ', '2023-05-22 09:30:00', 'Enchanted Forest Waterfalls', 'Explore hidden waterfalls in a magical forest adventure.', '/thumbnails/enchanted_forest.jpg', true, '00:05:30', '1080p', 'processed', 'public', '/files/enchanted_forest.mp4', 'creativeCommon', false, 'v8i7c6h9r5i4s0l'),
+    ('b1Fn7UcK9HQ', '2023-06-30 17:25:00', 'Mind-Blowing Magic Illusions', 'Witness jaw-dropping magic tricks and mind-bending illusions.', '/thumbnails/magic_illusions.jpg', true, '00:07:05', '720p', 'processed', 'public', '/files/magic_illusions.mp4', 'youtube', false, 'v2g4o5o6g7l8e9a0c'),
+    ('y2Ll6JiDk9F', '2023-07-18 14:15:00', 'Thrilling Ziplining Adventure', 'Soar across mountain peaks on an exhilarating ziplining ride.', '/thumbnails/ziplining_adventure.jpg', true, '00:08:20', '1080p', 'processed', 'public', '/files/ziplining_adventure.mp4', 'youtube', false, 'v2g4o5o6g7l8e9a0c'),
+    ('p8Nk3MzIdKU', '2023-08-12 17:45:00', 'DIY Home Decor Magic', 'Transform spaces with creative and budget-friendly DIY home decor.', '/thumbnails/diy_home_decor.jpg', false, '00:04:50', '720p', 'processed', 'public', '/files/diy_home_decor.mp4', 'youtube', false, 'm8i7n6d9f5u4l0l'),
+    ('r9Vj2JuXzLk', '2023-05-25 19:40:00', 'Yoga HIIT Fusion', 'Experience a unique fitness fusion of yoga and high-intensity training.', '/thumbnails/yoga_hiit_fusion.jpg', true, '00:04:20', '1080p', 'processed', 'public', '/files/yoga_hiit_fusion.mp4', 'creativeCommon', false, 'v3i4e5w6e9r2v3i4e'),
+    ('m1Kl7AeW9Dx', '2023-06-28 09:30:00', 'Tech Unboxing Extravaganza', 'Unbox the latest gadgets and witness cutting-edge technology.', '/thumbnails/tech_unboxing.jpg', true, '00:06:15', '720p', 'processed', 'public', '/files/tech_unboxing.mp4', 'creativeCommon', false, 'v2g4o5o6g7l8e9a0c'),
+    ('n3Kg4Yq9LwZ', '2023-07-05 14:30:00', 'Game Night Fun', 'Explore a variety of board games for a night of laughter and joy.', '/thumbnails/game_night.jpg', true, '00:03:30', '1080p', 'processed', 'public', '/files/game_night.mp4', 'youtube', false, 'v3i4e5w6e9r2v3i4e'),
+    ('t5Uo7Gp8LaX', '2023-08-21 12:55:00', 'Mindful Living', 'Embrace a mindful and intentional approach to life.', '/thumbnails/mindful_living.jpg', true, '00:07:10', '720p', 'processed', 'public', '/files/mindful_living.mp4', 'youtube', false, 'v3i4e5w6e9r2v3i4e'),
+    ('v2Aj4Rt5FgI', '2023-05-28 22:15:00', 'Arctic Explorations', 'Journeying through the icy landscapes of the Arctic.', '/thumbnails/arctic_explorations.jpg', true, '00:08:45', '1080p', 'processed', 'public', '/files/arctic_explorations.mp4', 'creativeCommon', false, 'v4a2l1e9x6c9h8e'),
+    ('u7Un1Tr2YtP', '2023-06-15 08:40:00', 'Mysterious Twin Peaks', 'Unraveling the mysteries of Twin Peaks.', '/thumbnails/twin_peaks.jpg', true, '00:06:30', '720p', 'processed', 'public', '/files/twin_peaks.mp4', 'creativeCommon', false, 'v1a0u9r7a6a5n2d'),
+    ('w1Iz9a8rCtE', '2023-07-30 18:15:00', 'Planet Earth Wonders', 'Explore the wonders of our beautiful planet and its ecosystems.', '/thumbnails/planet_earth_wonders.jpg', true, '00:09:20', '1080p', 'processed', 'public', '/files/planet_earth_wonders.mp4', 'creativeCommon', false, 'v1e0n7n6i8f9e1r'),
+    ('z9Mj8Yf5BdI', '2023-08-05 09:30:00', 'Magical Moments', 'Capturing and sharing magical moments from everyday life.', '/thumbnails/magical_moments.jpg', true, '00:04:50', '720p', 'processed', 'public', '/files/magical_moments.mp4', 'youtube', false, 'v9i0l8l3i2a4m5w'),
+    ('x7Nl6Dj9F5U', '2023-05-10 12:55:00', 'Melodies of Nature', 'Harmony of nature''s melodies and soothing sounds.', '/thumbnails/melodies_of_nature.jpg', true, '00:07:10', '1080p', 'processed', 'public', '/files/melodies_of_nature.mp4', 'creativeCommon', false, 'v9i0e1w2e3r4v5i6e'),
+	('s3Yk19IdtdQ', '2023-09-02 14:20:00', 'Exploring Coral Reefs', 'Dive into the vibrant world of coral reefs and marine life.', '/thumbnails/coral_reefs.jpg', true, '00:12:30', '1080p', 'processed', 'public', '/files/exploring_coral_reefs.mp4', 'creativeCommon', false, 'm8i7n6d9f5u4l0l'),
+	('a1Un2Tr3YtP', '2023-10-08 10:45:00', 'Epic Mountain Hiking', 'Embark on an epic journey through challenging mountain trails.', '/thumbnails/mountain_hiking.jpg', false, '00:09:55', '720p', 'processed', 'public', '/files/epic_mountain_hiking.mp4', 'youtube', false, 'v1a0u9r7a6a5n2d'),
+	('z9Nl6Dj1F5U', '2023-11-15 18:30:00', 'Dance Fusion Workout', 'Combine dance and fitness for an energetic and fun workout routine.', '/thumbnails/dance_fusion_workout.jpg', true, '00:06:40', '1080p', 'processed', 'public', '/files/dance_fusion_workout.mp4', 'creativeCommon', false, 'v1a2d3e4r5i6d7'),
+	('w2Iz9a7rCtE', '2023-09-28 12:15:00', 'Sunset Relaxation Session', 'Unwind with a soothing sunset and calming sounds of nature.', '/thumbnails/sunset_relaxation.jpg', false, '00:08:20', '720p', 'processed', 'public', '/files/sunset_relaxation_session.mp4', 'youtube', false, 'v1e0n7n6i8f9e1r'),
+	('b5Fn7UcK9HQ', '2023-10-20 16:25:00', 'Aerial Drone Adventures', 'Experience breathtaking views with aerial drone footage from various locations.', '/thumbnails/aerial_drone_adventures.jpg', true, '00:07:45', '1080p', 'processed', 'public', '/files/aerial_drone_adventures.mp4', 'creativeCommon', false, 'v2g4o5o6g7l8e9a0c'),
+	('t3Uo7Gp1LaX', '2023-11-05 14:30:00', 'Healthy Cooking Tips', 'Learn valuable tips for preparing delicious and nutritious meals.', '/thumbnails/healthy_cooking_tips.jpg', true, '00:05:30', '720p', 'processed', 'public', '/files/healthy_cooking_tips.mp4', 'youtube', false, 'v3i4e5w6e9r2v3i4e'),
+	('v6Aj4Rt8FgI', '2023-09-12 22:15:00', 'Nature Sounds Meditation', 'Immerse yourself in the calming meditation with the sounds of nature.', '/thumbnails/nature_sounds_meditation.jpg', true, '00:08:45', '1080p', 'processed', 'public', '/files/nature_sounds_meditation.mp4', 'creativeCommon', false, 'v4a2l1e9x6c9h8e'),
+	('c5Uo3Lk9BdI', '2023-10-05 09:30:00', 'Sustainable Living Tips', 'Explore sustainable living practices for a greener and eco-friendly lifestyle.', '/thumbnails/sustainable_living_tips.jpg', true, '00:04:50', '720p', 'processed', 'public', '/files/sustainable_living_tips.mp4', 'youtube', false, 'v5u3s6a9n2d0a2v'),
+	('v9Ij7Cu8HrS', '2023-11-21 19:40:00', 'Abstract Art Creations', 'Witness the creation of stunning abstract art pieces with various techniques.', '/thumbnails/abstract_art_creations.jpg', true, '00:07:10', '1080p', 'processed', 'public', '/files/abstract_art_creations.mp4', 'creativeCommon', false, 'v8i7c6h9r5i4s0l'),
+	('x4Ym8Dj9LwZ', '2023-09-18 12:55:00', 'Culinary Adventures', 'Embark on a culinary journey exploring diverse and delicious dishes.', '/thumbnails/culinary_adventures.jpg', true, '00:06:15', '720p', 'processed', 'public', '/files/culinary_adventures.mp4', 'youtube', false, 'v9i0e1w2e3r4v5i6e');
 
+INSERT INTO Video_tag (videoID, video_tag) VALUES
+	('dQw4w9WgXcQ', 'relaxation'), ('dQw4w9WgXcQ', 'ocean'), ('dQw4w9WgXcQ', 'serenity'), ('dQw4w9WgXcQ', 'waves'),
+	('x7Yk19IdtdQ', 'astronomy'), ('x7Yk19IdtdQ', 'cosmos'), ('x7Yk19IdtdQ', 'universe'), ('x7Yk19IdtdQ', 'mysteries'),
+	('l7Gh23XkjOQ', 'coffee'), ('l7Gh23XkjOQ', 'brewing'), ('l7Gh23XkjOQ', 'gourmet'), ('l7Gh23XkjOQ', 'techniques'),
+	('a9Js46YbFgI', 'urban'), ('a9Js46YbFgI', 'sketching'), ('a9Js46YbFgI', 'adventures'), ('a9Js46YbFgI', 'landscapes'),
+	('z5Uo3LkMbCQ', 'enchanted'), ('z5Uo3LkMbCQ', 'forest'), ('z5Uo3LkMbCQ', 'waterfalls'), ('z5Uo3LkMbCQ', 'adventure'),
+	('b1Fn7UcK9HQ', 'magic'), ('b1Fn7UcK9HQ', 'illusions'),
+	('y2Ll6JiDk9F', 'ziplining'), ('y2Ll6JiDk9F', 'adventure'),
+	('p8Nk3MzIdKU', 'DIY'), ('p8Nk3MzIdKU', 'home decor'),
+	('r9Vj2JuXzLk', 'yoga HIIT fusion'),
+	('m1Kl7AeW9Dx', 'tech unboxing'),
+	('n3Kg4Yq9LwZ', 'game night'),
+	('t5Uo7Gp8LaX', 'mindful living'),
+	('v2Aj4Rt5FgI', 'arctic explorations'),
+	('u7Un1Tr2YtP', 'twin peaks'),
+	('w1Iz9a8rCtE', 'planet earth wonders'),
+	('z9Mj8Yf5BdI', 'magical moments'),
+	('x7Nl6Dj9F5U', 'melodies of nature'),
+	('s3Yk19IdtdQ', 'coral reefs'),
+	('a1Un2Tr3YtP', 'mountain hiking'),
+	('z9Nl6Dj1F5U', 'dance fusion workout'),
+	('w2Iz9a7rCtE', 'sunset relaxation session'),
+	('b5Fn7UcK9HQ', 'aerial drone adventures'),
+	('t3Uo7Gp1LaX', 'healthy cooking tips'),
+	('v6Aj4Rt8FgI', 'nature sounds meditation'),
+	('c5Uo3Lk9BdI', 'sustainable living tips'),
+	('v9Ij7Cu8HrS', 'abstract art creations'),
+	('x4Ym8Dj9LwZ', 'culinary adventures');
+
+INSERT INTO MembersOnlyVideo (videoID, memberLevel, YPP_channelID, YPP_YPPID) VALUES
+	('dQw4w9WgXcQ', 'Gold', 'v1a2d3e4r5i6d7', 'YPP1234567890'),
+	('x7Yk19IdtdQ', 'Silver', 'v9i0e1w2e3r4v5i6e', 'YPP2345678901'),
+	('l7Gh23XkjOQ', 'Gold', 'v3i4e5w6e9r2v3i4e', 'YPP3456789012'),
+	('a9Js46YbFgI', 'Bronze', 'v2g4o5o6g7l8e9a0c', 'YPP4567890123'),
+	('z5Uo3LkMbCQ', 'Gold', 'v4a2l1e9x6c9h8e', 'YPP5678901234'),
+	('b1Fn7UcK9HQ', 'Silver', 'b6c7o8u9n1t2r3y4L', 'YPP6789012345'),
+	('y2Ll6JiDk9F', 'Gold', 'v1m3i9l2y4d5a0v', 'YPP7890123456'),
+	('p8Nk3MzIdKU', 'Bronze', 'v1e0n7n6i8f9e1r', 'YPP8901234567'),
+	('r9Vj2JuXzLk', 'Silver', 'v1a0u9r7a6a5n2d', 'YPP9012345678'),
+	('m1Kl7AeW9Dx', 'Gold', 'v8i7c6h9r5i4s0l', 'YPP0123456789');
+
+INSERT INTO MonetizedVideo (videoID, adsType, location, monetizationStatus, YPP_channelID, YPP_YPPID) VALUES
+	('dQw4w9WgXcQ', 'Skippable', 'United Kingdom', true, 'v1a2d3e4r5i6d7', 'YPP1234567890'),
+	('x7Yk19IdtdQ', 'Non-skippable', 'Australia', false, 'v9i0e1w2e3r4v5i6e', 'YPP2345678901'),
+	('l7Gh23XkjOQ', 'Display', 'Germany', true, 'v3i4e5w6e9r2v3i4e', 'YPP3456789012'),
+	('t3Uo7Gp1LaX', 'Bumper', 'France', false, 'v2g4o5o6g7l8e9a0c', 'YPP4567890123'),
+	('z5Uo3LkMbCQ', 'In-stream', 'Spain', true, 'v4a2l1e9x6c9h8e', 'YPP5678901234'),
+	('v2Aj4Rt5FgI', 'Discovery', 'Italy', false, 'b6c7o8u9n1t2r3y4L', 'YPP6789012345'),
+	('y2Ll6JiDk9F', 'Sponsored card', 'Brazil', true, 'v1m3i9l2y4d5a0v', 'YPP7890123456'),
+	('x4Ym8Dj9LwZ', 'TrueView', 'India', false, 'v1e0n7n6i8f9e1r', 'YPP8901234567'),
+	('v9Ij7Cu8HrS', 'Standard', 'United States', true, 'v1a0u9r7a6a5n2d', 'YPP9012345678'),
+	('z9Mj8Yf5BdI', 'Overlay', 'Canada', true, 'v8i7c6h9r5i4s0l', 'YPP0123456789');
+
+INSERT INTO Engage (viewerID, videoID, usedDevice, watchAt, watchDuration, isSaved, isDisliked, isLiked)
+VALUES
+    ('asdf484f2s23d87g', 'dQw4w9WgXcQ', 'Mobile', '2023-05-20 08:35:00', '00:08:30', true, false, true),
+    ('b2g76df3s9d2k1', 'x7Yk19IdtdQ', 'Desktop', '2023-06-15 13:20:00', '00:05:45', true, false, true),
+    ('c4o7e3y5j9o2h3n', 'l7Gh23XkjOQ', 'Tablet', '2023-07-10 17:00:00', '00:04:20', false, true, false),
+    ('e1m3i9l2y4w5i0l', 'a9Js46YbFgI', 'Mobile', '2023-08-05 12:00:00', '00:07:15', true, false, true),
+    ('m8i7c6h9a5e4l0b', 'z5Uo3LkMbCQ', 'Desktop', '2023-05-22 10:00:00', '00:05:45', true, false, true),
+    ('s5u3s6a9n2d0a2v', 'b1Fn7UcK9HQ', 'Mobile', '2023-06-30 17:30:00', '00:06:15', true, false, true),
+    ('d4a2v1d6m9i1l', 'y2Ll6JiDk9F', 'Tablet', '2023-07-18 14:30:00', '00:07:45', true, false, true),
+    ('l1a0u9r7a6a5n2d', 'p8Nk3MzIdKU', 'Desktop', '2023-08-12 18:00:00', '00:05:30', false, true, false),
+    ('w9i0l8l3i2a4m5w', 'r9Vj2JuXzLk', 'Mobile', '2023-05-25 20:00:00', '00:09:00', true, false, true),
+    ('j1e0n7n6i8f9e1r', 'm1Kl7AeW9Dx', 'Tablet', '2023-06-28 10:00:00', '00:06:45', true, false, true),
+    ('v1a2d3e4r5i6d7', 'n3Kg4Yq9LwZ', 'Desktop', '2023-07-05 15:00:00', '00:03:50', true, false, true),
+    ('v9i0e1w2e3r4v5i6e', 't5Uo7Gp8LaX', 'Mobile', '2023-08-21 13:00:00', '00:08:00', false, true, false),
+    ('v3i4e5w6e9r2v3i4e', 'v2Aj4Rt5FgI', 'Tablet', '2023-05-28 23:00:00', '00:04:45', true, false, true),
+    ('v1m3i9l2y4d5a0v', 'u7Un1Tr2YtP', 'Desktop', '2023-06-15 09:00:00', '00:06:30', false, true, false),
+    ('v8i7c6h9r5i4s0l', 'w1Iz9a8rCtE', 'Mobile', '2023-07-30 18:30:00', '00:07:20', true, false, true),
+    ('v5u3s6a9n2d0a2v', 'z9Mj8Yf5BdI', 'Tablet', '2023-08-05 10:00:00', '00:05:15', true, false, True),
+    ('v4a2l1e9x6c9h8e', 'x7Nl6Dj9F5U', 'Desktop', '2023-05-10 13:00:00', '00:07:45', false, true, false),
+    ('v1a2d3e4r5i6d7', 's3Yk19IdtdQ', 'Mobile', '2023-09-02 15:00:00', '00:10:00', true, false, true),
+    ('v9i0e1w2e3r4v5i6e', 'a1Un2Tr3YtP', 'Tablet', '2023-10-08 11:00:00', '00:09:30', false, true, false),
+    ('v9i0e1w2e3r4v5i6e', 'z9Nl6Dj1F5U', 'Desktop', '2023-11-15 19:00:00', '00:06:15', true, false, true),
+    ('v3i4e5w6e9r2v3i4e', 'w1Iz9a8rCtE', 'Mobile', '2023-09-28 13:00:00', '00:07:30', true, false, true),
+    ('v4a2l1e9x6c9h8e', 'b5Fn7UcK9HQ', 'Tablet', '2023-10-20 17:00:00', '00:08:45', false, true, false),
+    ('s5u3s6a9n2d0a2v', 't3Uo7Gp1LaX', 'Desktop', '2023-11-05 15:00:00', '00:05:00', true, false, true),
+    ('e1m3i9l2y4w5i0l', 'v6Aj4Rt8FgI', 'Mobile', '2023-09-12 23:00:00', '00:08:30', true, false, true),
+    ('c4o7e3y5j9o2h3n', 'c5Uo3Lk9BdI', 'Tablet', '2023-10-05 10:00:00', '00:04:30', false, true, false),
+    ('b2g76df3s9d2k1', 'v9Ij7Cu8HrS', 'Desktop', '2023-11-21 20:00:00', '00:07:45', true, false, true),
+    ('b6c7o8u9n1t2r3y4L', 'x7Nl6Dj9F5U', 'Mobile', '2023-09-18 13:30:00', '00:06:30', true, false, true),
+    ('c3o4u5n6t7r8y9S', 'w2Iz9a7rCtE', 'Tablet', '2023-10-20 17:30:00', '00:05:45', false, true, false),
+    ('que23his21h2hws', 'b5Fn7UcK9HQ', 'Desktop', '2023-11-15 19:30:00', '00:07:00', true, false, true),
+    ('m8i7n6d9f5u4l0l', 'dQw4w9WgXcQ', 'Mobile', '2023-10-20 18:00:00', '00:05:15', false, true, false),
+    ('s5u3s6a9n2d0a2v', 'v6Aj4Rt8FgI', 'Tablet', '2023-11-07 12:30:00', '00:08:00', true, false, true),
+    ('d4a2v1d6m9i1l', 'z9Nl6Dj1F5U', 'Desktop', '2023-11-06 15:00:00', '00:06:45', false, true, false),
+    ('l1a0u9r7a6a5n2d', 'c5Uo3Lk9BdI', 'Mobile', '2023-11-05 10:30:00', '00:05:30', true, false, true),
+    ('w9i0l8l3i2a4m5w', 'x7Nl6Dj9F5U', 'Tablet', '2023-11-04 11:00:00', '00:09:15', false, true, false),
+    ('j1e0n7n6i8f9e1r', 's3Yk19IdtdQ', 'Desktop', '2023-11-03 16:00:00', '00:06:00', true, false, true),
+    ('v1a2d3e4r5i6d7', 'v6Aj4Rt8FgI', 'Mobile', '2023-11-02 13:00:00', '00:04:45', false, true, false),
+    ('v9i0e1w2e3r4v5i6e', 'u7Un1Tr2YtP', 'Tablet', '2023-11-01 16:30:00', '00:07:30', true, false, true);
+    
+-- Comments for videos with 1 comment
+INSERT INTO Comment (
+    commentID,
+    publishedAt,
+    updatedAt,
+    moderationStatus,
+    likeCounts,
+    isPinned,
+    canRate,
+    textOriginal,
+    textDisplay,
+    authorChannelUrl,
+    authorProfileImageUrl,
+    authorDisplayName,
+    channelID,
+    videoID
+) VALUES
+	('C10000000001', '2023-05-20 08:35:00', '2023-05-20 08:35:00', 'published', 15, false, true, 'Great video!', 'Great video!', 'https://www.youtube.com/c/WonderlandAdventures', '/images/channel001.jpg', 'Wonderland Adventures', 'v1a2d3e4r5i6d7', 'dQw4w9WgXcQ'),
+	('C10000000002', '2023-06-15 13:20:00', '2023-06-15 13:20:00', 'published', 20, false, true, 'Fantastic content!', 'Fantastic content!', 'https://www.youtube.com/c/ReggaeVibes', '/images/channel002.jpg', 'Reggae Vibes', 'v9i0e1w2e3r4v5i6e', 'x7Yk19IdtdQ'),
+	('C10000000003', '2023-07-10 17:00:00', '2023-07-10 17:00:00', 'published', 10, false, true, 'Amazing tips!', 'Amazing tips!', 'https://www.youtube.com/c/FoodParadise', '/images/channel003.jpg', 'Food Paradise', 'v3i4e5w6e9r2v3i4e', 'l7Gh23XkjOQ'),
+	('C10000000004', '2023-08-05 11:50:00', '2023-08-05 11:50:00', 'published', 18, false, true, 'Great sketching techniques!', 'Great sketching techniques!', 'https://www.youtube.com/c/StardustDreams', '/images/channel004.jpg', 'Stardust Dreams', 'v1m3i9l2y4d5a0v', 'a9Js46YbFgI'),
+	('C10000000005', '2023-05-22 09:35:00', '2023-05-22 09:35:00', 'published', 22, false, true, 'Magical forest indeed!', 'Magical forest indeed!', 'https://www.youtube.com/c/ArtisticExpressions', '/images/channel005.jpg', 'Artistic Expressions', 'v8i7c6h9r5i4s0l', 'z5Uo3LkMbCQ'),
+	('C10000000006', '2023-06-30 17:30:00', '2023-06-30 17:30:00', 'published', 14, false, true, 'Mind-blowing illusions!', 'Mind-blowing illusions!', 'https://www.youtube.com/c/SpaceOdyssey', '/images/channel006.jpg', 'Space Odyssey', 'v5u3s6a9n2d0a2v', 'b1Fn7UcK9HQ'),
+	('C10000000007', '2023-07-18 14:20:00', '2023-07-18 14:20:00', 'published', 25, false, true, 'Thrilling ziplining!', 'Thrilling ziplining!', 'https://www.youtube.com/c/SpaceOdyssey', '/images/channel006.jpg', 'Space Odyssey', 'v5u3s6a9n2d0a2v', 'y2Ll6JiDk9F'),
+	('C10000000008', '2023-08-12 17:45:00', '2023-08-12 17:45:00', 'published', 30, false, true, 'Creative home decor!', 'Creative home decor!', 'https://www.youtube.com/c/ArtisticExpressions', '/images/channel005.jpg', 'Artistic Expressions', 'v8i7c6h9r5i4s0l', 'p8Nk3MzIdKU'),
+	('C10000000009', '2023-05-25 19:40:00', '2023-05-25 19:40:00', 'published', 18, false, true, 'Yoga HIIT is awesome!', 'Yoga HIIT is awesome!', 'https://www.youtube.com/c/FoodParadise', '/images/channel003.jpg', 'Food Paradise', 'v3i4e5w6e9r2v3i4e', 'r9Vj2JuXzLk'),
+	('C10000000010', '2023-06-28 09:30:00', '2023-06-28 09:30:00', 'published', 22, false, true, 'Exciting tech unboxing!', 'Exciting tech unboxing!', 'https://www.youtube.com/c/TechExplorers', '/images/channel011.jpg', 'Tech Explorers', 'v1a2d3e4r5i6d7', 'm1Kl7AeW9Dx'),
+	('C10000000011', '2023-09-02 14:25:00', '2023-09-02 14:25:00', 'published', 12, false, true, 'Wonderful coral reefs!', 'Wonderful coral reefs!', 'https://www.youtube.com/c/MindfulLiving', '/images/channel010.jpg', 'Melodies of Nature', 'm8i7n6d9f5u4l0l', 's3Yk19IdtdQ'),
+	('C10000000012', '2023-10-08 10:50:00', '2023-10-08 10:50:00', 'published', 15, false, true, 'Epic mountain hiking adventure!', 'Epic mountain hiking adventure!', 'https://www.youtube.com/c/ArcticExplorations', '/images/channel007.jpg', 'Arctic Explorations', 'c3o4u5n6t7r8y9S', 's3Yk19IdtdQ'),
+	('C10000000013', '2023-11-15 18:35:00', '2023-11-15 18:35:00', 'published', 20, false, true, 'Dance fusion workout is amazing!', 'Dance fusion workout is amazing!', 'https://www.youtube.com/c/WizardingWorldWonders', '/images/channel009.jpg', 'Wizarding World Wonders', 'v8i7c6h9r5i4s0l', 'u7Un1Tr2YtP'),
+	('C10000000014', '2023-09-18 12:40:00', '2023-09-18 12:40:00', 'published', 18, false, true, 'Mesmerizing piano performance!', 'Mesmerizing piano performance!', 'https://www.youtube.com/c/MindfulLiving', '/images/channel010.jpg', 'Melodies of Nature', 'c3o4u5n6t7r8y9S', 'z9Nl6Dj1F5U'),
+	('C10000000015', '2023-10-25 16:15:00', '2023-10-25 16:15:00', 'published', 22, false, true, 'Delicious vegan recipes!', 'Delicious vegan recipes!', 'https://www.youtube.com/c/FoodParadise', '/images/channel003.jpg', 'Food Paradise', 'v3i4e5w6e9r2v3i4e', 'z9Nl6Dj1F5U'),
+	('C10000000016', '2023-11-30 21:10:00', '2023-11-30 21:10:00', 'published', 25, false, true, 'Incredible time-lapse photography!', 'Incredible time-lapse photography!', 'https://www.youtube.com/c/ReggaeVibes', '/images/channel002.jpg', 'Reggae Vibes', 'v9i0e1w2e3r4v5i6e', 'z9Nl6Dj1F5U'),
+	('C10000000017', '2023-12-10 08:20:00', '2023-12-10 08:20:00', 'published', 30, false, true, 'Mindfulness meditation session!', 'Mindfulness meditation session!', 'https://www.youtube.com/c/MindfulLiving', '/images/channel010.jpg', 'Melodies of Nature', 'v8i7c6h9r5i4s0l', 'm1Kl7AeW9Dx'),
+	('C10000000018', '2023-12-25 15:45:00', '2023-12-25 15:45:00', 'published', 28, false, true, 'Art of abstract painting!', 'Art of abstract painting!', 'https://www.youtube.com/c/ArtisticExpressions', '/images/channel005.jpg', 'Artistic Expressions', 'v8i7c6h9r5i4s0l', 'm1Kl7AeW9Dx'),
+	('C10000000019', '2023-12-28 09:30:00', '2023-12-28 09:30:00', 'published', 22, false, true, 'Unboxing latest tech gadgets!', 'Unboxing latest tech gadgets!', 'https://www.youtube.com/c/TechExplorers', '/images/channel011.jpg', 'Tech Explorers', 'que23his21h2hws', 'm1Kl7AeW9Dx'),
+	('C10000000020', '2023-08-22 14:55:00', '2023-08-22 14:55:00', 'published', 35, false, true, 'Captivating space exploration!', 'Captivating space exploration!', 'https://www.youtube.com/c/SpaceOdyssey', '/images/channel006.jpg', 'Space Odyssey', 'v5u3s6a9n2d0a2v', 'y2Ll6JiDk9F'),
+	('C10000000021', '2023-07-05 11:30:00', '2023-07-05 11:30:00', 'published', 50, true, true, 'Pinned comment! Great video!', 'Pinned comment! Great video!', 'https://www.youtube.com/c/MindfulLiving', '/images/channel010.jpg', 'Melodies of Nature', 'que23his21h2hws', 'y2Ll6JiDk9F'),
+	('C10000000022', '2023-09-05 16:20:00', '2023-09-05 16:20:00', 'published', 28, false, true, 'Absolutely love your content!', 'Absolutely love your content!', 'https://www.youtube.com/c/WonderlandAdventures', '/images/channel001.jpg', 'Wonderland Adventures', 'v1a2d3e4r5i6d7', 'y2Ll6JiDk9F'),
+	('C10000000023', '2023-10-12 10:45:00', '2023-10-12 10:45:00', 'published', 22, true, true, 'Keep up the great work!', 'Keep up the great work!', 'https://www.youtube.com/c/ReggaeVibes', '/images/channel002.jpg', 'Reggae Vibes', 'v9i0e1w2e3r4v5i6e', 'y2Ll6JiDk9F'),
+	('C10000000024', '2023-11-20 18:30:00', '2023-11-20 18:30:00', 'published', 25, true, true, 'Your channel is my daily dose of inspiration!', 'Your channel is my daily dose of inspiration!', 'https://www.youtube.com/c/FoodParadise', '/images/channel003.jpg', 'Food Paradise', 'v3i4e5w6e9r2v3i4e', 'l7Gh23XkjOQ'),
+	('C10000000025', '2023-09-25 12:50:00', '2023-09-25 12:50:00', 'published', 30, false, true, 'This video changed my perspective. Thank you!', 'This video changed my perspective. Thank you!', 'https://www.youtube.com/c/StardustDreams', '/images/channel004.jpg', 'Stardust Dreams', 'v1m3i9l2y4d5a0v', 'a9Js46YbFgI'),
+	('C10000000026', '2023-10-28 17:35:00', '2023-10-28 17:35:00', 'published', 18, false, true, 'I can watch your videos all day!', 'I can watch your videos all day!', 'https://www.youtube.com/c/ArtisticExpressions', '/images/channel005.jpg', 'Artistic Expressions', 'v8i7c6h9r5i4s0l', 'z5Uo3LkMbCQ'),
+	('C10000000027', '2023-12-05 09:30:00', '2023-12-05 09:30:00', 'published', 22, false, true, 'Your illusions blow my mind!', 'Your illusions blow my mind!', 'https://www.youtube.com/c/SpaceOdyssey', '/images/channel006.jpg', 'Space Odyssey', 'v5u3s6a9n2d0a2v', 'b1Fn7UcK9HQ'),
+	('C10000000028', '2023-09-22 14:20:00', '2023-09-22 14:20:00', 'published', 25, false, true, 'I felt like I was ziplining with you!', 'I felt like I was ziplining with you!', 'https://www.youtube.com/c/SpaceOdyssey', '/images/channel006.jpg', 'Space Odyssey', 'v5u3s6a9n2d0a2v', 'y2Ll6JiDk9F'),
+	('C10000000029', '2023-10-15 17:45:00', '2023-10-15 17:45:00', 'published', 20, false, true, 'Your home decor ideas are fantastic!', 'Your home decor ideas are fantastic!', 'https://www.youtube.com/c/ArtisticExpressions', '/images/channel005.jpg', 'Artistic Expressions', 'v8i7c6h9r5i4s0l', 'p8Nk3MzIdKU'),
+	('C10000000030', '2023-09-28 19:40:00', '2023-09-28 19:40:00', 'published', 18, false, true, 'I''ve never tried Yoga HIIT, but your video convinced me!', 'I''ve never tried Yoga HIIT, but your video convinced me!', 'https://www.youtube.com/c/FoodParadise', '/images/channel003.jpg', 'Food Paradise', 'v3i4e5w6e9r2v3i4e', 'r9Vj2JuXzLk');
+
+-- Video Ads
+INSERT INTO VideoAds (
+    videoAdsID,
+    length,
+    objective,
+    videoFormatType,
+    targetLocation,
+    targetLanguage,
+    budget,
+    googleAdsAcctID
+) VALUES
+	('adsA100000000', '00:00:30', 'Increase brand awareness', 'Skippable video ads', 'United States', 'English', 10000.00, 'a1b2c3d4e5f6g7h8'),
+	('adsA100000001', '00:00:15', 'Promote a new product', 'Non-skippable video ads', 'Canada', 'French', 7500.00, 'i9j0k1l2m3n4o5p'),
+	('adsA100000002', '00:00:10', 'Drive user engagement', 'Bumper ads', 'United Kingdom', 'English', 5000.00, 'q6r7s8t9u0v1w2x'),
+	('adsA100000003', '00:00:20', 'Advertise special promotions', 'Skippable video ads', 'Germany', 'German', 12000.00, 'g0h1i2j3k4l5m6n'),
+	('adsA100000004', '00:00:25', 'Showcase brand storytelling', 'Skippable video ads', 'France', 'French', 8000.00, 'y3z4a5b6c7d8e9f'),
+	('adsA100000005', '00:00:12', 'Highlight product features', 'Non-skippable video ads', 'Japan', 'Japanese', 6000.00, 'o7p8q9r0s1t2u3v'),
+	('adsA100000006', '00:00:18', 'Encourage app installations', 'Bumper ads', 'Australia', 'English', 9000.00, 'w4x5y6z7a8b9c0d'),
+	('adsA100000007', '00:00:22', 'Drive online sales', 'Skippable video ads', 'China', 'Mandarin', 15000.00, 'u6v7w8x9y0z1a2b'),
+	('adsA100000008', '00:00:14', 'Showcase customer testimonials', 'Skippable video ads', 'India', 'Hindi', 7000.00, 'e2f3g4h5i6j7k8l'),
+	('adsA100000009', '00:00:16', 'Promote in-store visits', 'Skippable video ads', 'Brazil', 'Portuguese', 11000.00, 'm9n0o1p2q3r4s5t'),
+	('adsA100000010', '00:00:28', 'Highlight product usage tips', 'Non-skippable video ads', 'United States', 'English', 10000.00, 'a1b2c3d4e5f6g7h8'),
+	('adsA100000011', '00:00:08', 'Create brand recall', 'Bumper ads', 'Germany', 'German', 4500.00, 'i9j0k1l2m3n4o5p'),
+	('adsA100000012', '00:00:18', 'Drive website traffic', 'Skippable video ads', 'United Kingdom', 'English', 8000.00, 'q6r7s8t9u0v1w2x'),
+	('adsA100000013', '00:00:22', 'Promote seasonal discounts', 'Skippable video ads', 'United States', 'English', 12000.00, 'a1b2c3d4e5f6g7h8'),
+	('adsA100000014', '00:00:14', 'Showcase product demonstrations', 'Non-skippable video ads', 'Canada', 'French', 7000.00, 'i9j0k1l2m3n4o5p'),
+	('adsA100000015', '00:00:10', 'Drive social media engagement', 'Bumper ads', 'United Kingdom', 'English', 5000.00, 'q6r7s8t9u0v1w2x');
 
 INSERT INTO `Appear_Ads` (videoID, videoAdsID, videoAdsViews) VALUES
 ('video126', 'video135', 10235),

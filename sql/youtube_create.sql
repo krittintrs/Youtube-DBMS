@@ -201,6 +201,7 @@ CREATE TABLE IF NOT EXISTS Engage (
     viewerID 		VARCHAR(128),
     videoID 		VARCHAR(128),
     usedDevice 		VARCHAR(20)	NOT NULL,
+    watchAt			DATETIME	NOT NULL,
     watchDuration	TIME		NOT NULL,
     isSaved 		BOOLEAN		NOT NULL,
     isDisliked 		BOOLEAN		NOT NULL,
