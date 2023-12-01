@@ -1,3 +1,6 @@
+-- Select database
+USE youtube;
+
 -- Query 1
 SELECT 
     VideoAds.videoAdsID,
@@ -304,9 +307,154 @@ GROUP BY
 ORDER BY
     TotalBudget DESC;
 
+-- Query 21
+SELECT
+    ID AS viewerID,
+    displayName as Name,
+    lastLogin as "Last Logged In",
+    DATEDIFF(NOW(), COALESCE(lastLogin, createdDate)) AS inactiveDays
+FROM
+    Viewer
+WHERE
+    lastLogin < DATE_SUB(NOW(), INTERVAL 15 DAY);
+
+-- Query 22
+SELECT
+    v.videoID,
+    v.title,
+    e.watchDuration
+FROM
+    Video v
+JOIN
+    Engage e ON v.videoID = e.videoID
+WHERE
+    e.isLiked = true
+    AND e.watchDuration > '00:08:00';
+
+-- Query 23
+SELECT
+    v.videoID,
+    v.title
+FROM
+    Video v
+JOIN
+    Video_tag vt ON v.videoID = vt.videoID
+WHERE
+    vt.video_tag = 'cooking';
+
+-- Query 24
+SELECT
+    cc.ID AS channelID,
+    cc.title AS channelName,
+    y.acceptedAt
+FROM
+    ChannelCreator cc
+JOIN
+    YPP y ON cc.ID = y.channelID
+WHERE
+	y.acceptedAt < '2023-07-01 00:00:00';
+
+-- Query 25
+SELECT
+    cc.ID AS channelID,
+    cc.title AS channelName,
+    COUNT(s.subscriberID) AS numSubscribers
+FROM
+    ChannelCreator cc
+LEFT JOIN
+    Subscribe s ON cc.ID = s.channelID
+GROUP BY
+    cc.ID, cc.title
+ORDER BY
+    numSubscribers DESC;
+
+-- Query 26
+SELECT
+    v.viewerID,
+    ve.displayName AS viewerName,
+    v.videoID,
+    vi.title AS videoName,
+    vt.video_tag
+FROM
+    Engage v
+JOIN
+    Viewer ve ON v.viewerID = ve.ID
+JOIN
+    Video vi ON v.videoID = vi.videoID
+JOIN
+    Video_tag vt ON v.videoID = vt.videoID
+WHERE
+    v.isLiked = true
+    AND vt.video_tag = 'Travel';
+
+-- Query 27
+SELECT
+    s.subscriberID AS subscriberChannelID,
+    cc.title AS subscriberChannelName,
+    COUNT(DISTINCT s.channelID) AS numSubscribedChannels
+FROM
+    Subscribe s
+JOIN
+    ChannelCreator cc ON s.subscriberID = cc.ID
+LEFT OUTER JOIN
+    YPP y ON s.channelID = y.channelID
+WHERE
+    y.YPPID IS NULL
+GROUP BY
+    s.subscriberID, cc.title;
+
+-- Query 28
+SELECT
+    e.videoID,
+    v.title AS videoTitle,
+    SUM(e.watchDuration) AS totalWatchDuration
+FROM
+    Engage e
+JOIN
+    Video v ON e.videoID = v.videoID
+GROUP BY
+    e.videoID, v.title
+ORDER BY
+    totalWatchDuration DESC
+LIMIT 1;
+
+-- Query 29
+SELECT
+    e.viewerID,
+    v.displayName AS viewerName,
+    GROUP_CONCAT(DISTINCT e.usedDevice ORDER BY e.usedDevice SEPARATOR ', ')  AS nameOfDevices,
+    COUNT(DISTINCT e.usedDevice) AS numDevicesUsed
+FROM
+    Engage e
+JOIN
+    Viewer v ON e.viewerID = v.ID
+GROUP BY
+    e.viewerID, v.displayName;
+
+-- Query 30
+SELECT
+    v.videoID,
+    v.title AS videoTitle,
+    vt.video_tag,
+    COUNT(DISTINCT e.viewerID) AS numUniqueViewers,
+    CONCAT(v.title, ' - ', SUBSTRING(v.publishedAt, 1, 4)) AS videoTitleYear,
+    CASE
+        WHEN COUNT(DISTINCT e.viewerID) >= 100 THEN 'High Engagement'
+        WHEN COUNT(DISTINCT e.viewerID) >= 50 THEN 'Moderate Engagement'
+        ELSE 'Low Engagement'
+    END AS engagementLevel
+FROM
+    Video v
+JOIN
+    Engage e ON v.videoID = e.videoID
+LEFT JOIN
+    Video_Tag vt ON v.videoID = vt.videoID
+GROUP BY
+    v.videoID, v.title, vt.video_tag
+ORDER BY
+    numUniqueViewers DESC;
 
 -- Query 41
-USE youtube;
 SELECT
 	featureName,
     description
