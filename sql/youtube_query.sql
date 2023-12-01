@@ -568,22 +568,26 @@ ORDER BY updatedAt;
 
 -- Query 49
 SELECT 
-	C.title,
-    C.description,
-    C.defaultLanguage,
-    C.country,
-    C.privacyStatus,
-    C.topicDetails,
+	C.title AS commentorTitle,
+    C.defaultLanguage AS commentorLang,
+    C.topicDetails AS commentorTopics,
+    v.title AS videoTitle,
+    (SELECT GROUP_CONCAT(video_tag SEPARATOR ', ') FROM Video_tag WHERE videoID = V.videoID) AS videoTags,
+    highRatedComment.textOriginal,
     highRatedComment.likeCounts
 FROM ChannelCreator AS C
 INNER JOIN (
 	SELECT 
 		channelID, 
+        videoID,
+        textOriginal,
         likeCounts
 	FROM Comment
     WHERE likeCounts > 30
 ) AS highRatedComment
 	ON C.ID = highRatedComment.channelID
+INNER JOIN Video AS V
+	ON highRatedComment.videoID = V.videoID
 ORDER BY highRatedComment.likeCounts DESC;
 
 -- Query 50
