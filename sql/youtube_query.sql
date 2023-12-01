@@ -133,6 +133,178 @@ JOIN
 JOIN
     VideoAds_placement ON VideoAds.videoAdsID = VideoAds_placement.videoAdsID;
 
+-- Query 11
+SELECT
+	distinct a.googleAcct_addressNumber, 
+	a.googleAcct_district
+FROM
+	GoogleAccount g
+JOIN 
+	GoogleAcct_address a on g.id = a.googleAcctID
+WHERE 
+	a.googleAcct_province = 'Bangkok';
+
+-- Query 12
+SELECT 
+	COUNT(DISTINCT g.googleAccountEmail) AS count_no_address
+FROM
+	GoogleAccount g
+LEFT JOIN 
+	GoogleAcct_address a on g.id = a.googleAcctID
+WHERE
+	a.googleAcct_province IS NULL;
+
+-- Query 13
+SELECT
+	a.googleAdsAcctID, 
+    SUM(v.budget) AS Total_budget
+From
+	googleAdsAccount a
+JOIN
+	VideoAds v ON v.googleAdsAcctID = a.googleAdsAcctID
+GROUP BY
+	a.googleAdsAcctID
+ORDER BY Total_budget DESC;
+
+-- Query 14
+SELECT 
+	addr.googleAcct_province,
+	SUM(DISTINCT v.budget) AS total_budget
+FROM
+	GoogleAdsaccount ggads
+JOIN
+	VideoAds v ON v.googleAdsAcctID = ggads.googleAdsAcctID
+JOIN
+	GoogleAcct_address addr ON addr.googleAcctID = ggads.googleAcctID
+GROUP BY
+	addr.googleAcct_province
+ORDER BY
+	total_budget DESC;
+    
+-- Query 15
+SELECT 
+    v.videoAdsID,
+    v.length,
+    v.budget AS min_budget
+FROM 
+    VideoAds v
+JOIN 
+    GoogleAdsaccount ggads ON ggads.googleAdsAcctID = v.googleAdsAcctID
+JOIN 
+    GoogleAcct_address addr ON addr.googleAcctID = ggads.googleAcctID
+WHERE 
+	addr.googleAcct_province LIKE 'Bangkok'
+ORDER BY 
+    v.budget
+LIMIT 1;
+
+-- Query 16
+SELECT 
+    addr.googleAcct_province,
+    COUNT(DISTINCT CASE WHEN v.videoFormatType = 'Skippable video ads' THEN v.videoAdsID END) AS skippableAds,
+    COUNT(DISTINCT CASE WHEN v.videoFormatType = 'Non-skippable video ads' THEN v.videoAdsID END) AS nonSkippableAds,
+    Count(DISTINCT CASE WHEN v.videoFormatType = 'Bumper ads' THEN v.videoAdsID END) AS bumperAds
+FROM
+    GoogleAcct_address addr
+JOIN
+    GoogleAdsaccount ggads ON ggads.googleAcctID = addr.googleAcctID
+JOIN (
+    SELECT DISTINCT googleAdsAcctID, videoAdsID, videoFormatType
+    FROM VideoAds
+) v ON v.googleAdsAcctID = ggads.googleAdsAcctID
+GROUP BY
+    addr.googleAcct_province;
+
+-- Query 17
+SELECT
+    g.googleAccountEmail,
+    c.title AS ChannelTitle,
+    SUM(s.ViewDuration) AS SumViewDuration
+FROM
+    GoogleAccount g
+JOIN
+    ChannelCreator c ON g.ID = c.googleAcctID
+JOIN
+    Video v ON v.channelID = c.ID
+JOIN
+    (
+        SELECT
+            v.videoID,
+            COUNT(e.viewerID) AS ViewCount,
+            SUM(e.watchDuration) AS ViewDuration
+        FROM
+            engage e
+        JOIN
+            video v ON e.videoID = v.videoID
+        GROUP BY
+            v.videoID
+    ) s ON s.VideoID = v.videoID
+GROUP BY
+    g.googleAccountEmail, c.title
+ORDER BY
+    SumViewDuration DESC;
+
+-- Query 18
+SELECT
+    g.googleAccountEmail,
+    c.title AS ChannelTitle,
+    MAX(s.ViewDuration) AS MaxViewDuration
+FROM
+    GoogleAccount g
+JOIN
+    ChannelCreator c ON g.ID = c.googleAcctID
+JOIN
+    Video v ON v.channelID = c.ID
+JOIN
+    (
+        SELECT
+            v.videoID,
+            SUM(e.watchDuration) AS ViewDuration
+        FROM
+            engage e
+        JOIN
+            video v ON e.videoID = v.videoID
+        GROUP BY
+            v.videoID
+    ) s ON s.VideoID = v.videoID
+GROUP BY
+    g.googleAccountEmail, c.title
+ORDER BY
+    MaxViewDuration DESC;
+
+-- Query 19
+SELECT 
+    DISTINCT g.GoogleAcct_cardType AS cardType, 
+    count(g.GoogleAcct_cardType) AS cardTypeCount
+FROM GoogleAcct_billingInfo g
+GROUP BY cardType;
+
+-- Query 20
+SELECT 
+    c.title, 
+    SUM(vads.budget) AS TotalBudget,
+    ANY_VALUE(t.Subcount) AS MaxSubcount
+FROM 
+    (
+        SELECT
+            c.ID AS ChannelID,
+            COUNT(s.subscriberID) AS SubCount
+        FROM
+            ChannelCreator c
+        JOIN
+            Subscribe s ON c.ID = s.subscriberID
+        GROUP BY
+            c.ID
+    ) t
+JOIN ChannelCreator c ON c.ID = t.ChannelID
+JOIN GoogleAdsAccount a ON a.googleAcctID = c.googleAcctID
+LEFT JOIN VideoAds vads ON vads.googleAdsAcctID = a.googleAdsAcctID
+GROUP BY 
+    c.title
+ORDER BY
+    TotalBudget DESC;
+
+
 -- Query 41
 USE youtube;
 SELECT
