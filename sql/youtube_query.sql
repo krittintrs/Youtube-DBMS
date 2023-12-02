@@ -435,9 +435,7 @@ GROUP BY
 SELECT
     v.videoID,
     v.title AS videoTitle,
-    vt.video_tag,
     COUNT(DISTINCT e.viewerID) AS numUniqueViewers,
-    CONCAT(v.title, ' - ', SUBSTRING(v.publishedAt, 1, 4)) AS videoTitleYear,
     CASE
         WHEN COUNT(DISTINCT e.viewerID) >= 100 THEN 'High Engagement'
         WHEN COUNT(DISTINCT e.viewerID) >= 50 THEN 'Moderate Engagement'
@@ -447,12 +445,39 @@ FROM
     Video v
 JOIN
     Engage e ON v.videoID = e.videoID
-LEFT JOIN
-    Video_Tag vt ON v.videoID = vt.videoID
 GROUP BY
-    v.videoID, v.title, vt.video_tag
+    v.videoID, v.title
 ORDER BY
     numUniqueViewers DESC;
+
+-- Query 40
+SELECT 
+	v.displayName,
+    CASE 
+		WHEN (c.ID IS NULL AND g.ID IS NOT NULL) THEN 'Channel''s Creator'
+		WHEN (c.ID IS NOT NULL AND g.ID IS NULL) THEN 'Google Account'
+        ELSE 'Viewer'
+	END AS viewerType,
+    COUNT(DISTINCT e.videoID) AS totalVideo,
+    AVG(e.watchDuration) AS avgWatchDuration,
+    TIME_FORMAT(SEC_TO_TIME(AVG(TIME_TO_SEC(watchAt))), '%H:%i') AS averageWatchTime,
+    GROUP_CONCAT(DISTINCT vt.video_tag SEPARATOR ', ') AS videoTopics
+FROM Viewer AS v
+LEFT OUTER JOIN ChannelCreator AS c
+	ON v.ID = c.ID
+LEFT OUTER JOIN GoogleAccount AS g
+	ON v.ID = g.ID
+JOIN Engage AS e
+	ON v.ID = e.viewerID
+JOIN (
+    SELECT
+        vt.videoID,
+        vt.video_tag
+    FROM Video_tag vt
+) AS vt ON e.videoID = vt.videoID
+GROUP BY v.ID
+HAVING totalVideo > 1
+ORDER BY totalVideo DESC;
 
 -- Query 41
 SELECT
@@ -498,12 +523,11 @@ LIMIT 3;
 -- Query 45
 SELECT 
     v.title,
-    v.description,
-    v.caption,
     v.duration,
+	v.dimension,
     v.visibility,
     v.license,
-    v.madeForKids,
+    v.madeForKids AS kids,
     SUM(isSaved) AS saved, 
     SUM(isDisliked) AS disliked, 
     SUM(isLiked) AS liked
@@ -516,17 +540,17 @@ ORDER BY liked DESC;
 
 -- Query 46
 SELECT
-	v.title,
-    v.description,
-    v.caption,
+	v.title AS videoTitle,
     v.duration,
-    v.visibility,
-    v.license,
-    v.madeForKids,
+    v.dimension,
+    v.description,
+    c.title AS creator,
     a.videoAdsViews
 FROM Appear_VideoAds AS A
 INNER JOIN Video AS V
 	ON A.videoID = V.videoID
+INNER JOIN ChannelCreator AS C
+	ON V.channelID = C.ID
 WHERE videoAdsID IN (
 	SELECT videoAdsID 
     FROM VideoAds 
@@ -549,28 +573,40 @@ GROUP BY VideoAds_keyword
 ORDER BY average_times DESC;
 
 -- Query 48
-SELECT
-	authorDisplayName,
-    textOriginal,
-    textDisplay,
-    likeCounts,
-    isPinned,
-    updatedAt
-FROM Comment
-WHERE channelID IN (
-	SELECT C.ID 
-	FROM ChannelCreator AS C
-	INNER JOIN Viewer AS V
-		ON C.ID = V.ID
-	WHERE V.lastLogin > '2023-11-18'
-)
-ORDER BY updatedAt;
+SELECT 
+	v.displayName,
+    g.gender,
+    g.googleAccountEmail,
+    COUNT(channelStat.channelTitle) AS totalChannel,
+    COALESCE(SUM(channelStat.videoCount), 0) AS totalVideo,
+    COALESCE(SUM(channelStat.watchCount), 0) AS totalWatch
+FROM GoogleAccount AS g
+LEFT OUTER JOIN (
+	SELECT 
+		c.googleAcctID,
+		c.title AS channelTitle,
+		COUNT(DISTINCT v.videoID) AS videoCount,
+		COUNT(e.videoID) AS watchCount
+	FROM ChannelCreator AS c
+	LEFT OUTER JOIN Video AS v
+		ON v.channelID = c.ID
+	LEFT OUTER JOIN Engage AS e
+		ON v.videoID = e.videoID
+	GROUP BY c.ID
+) AS channelStat
+	ON g.ID = channelStat.googleAcctID
+INNER JOIN Viewer AS v
+	ON g.ID = v.ID
+GROUP BY g.ID
+ORDER BY
+	totalChannel DESC,
+    totalVideo DESC,
+    totalWatch DESC;
 
 -- Query 49
 SELECT 
-	C.title AS commentorTitle,
-    C.defaultLanguage AS commentorLang,
-    C.topicDetails AS commentorTopics,
+	C.title AS commenter,
+    C.topicDetails AS commenterTopics,
     v.title AS videoTitle,
     (SELECT GROUP_CONCAT(video_tag SEPARATOR ', ') FROM Video_tag WHERE videoID = V.videoID) AS videoTags,
     highRatedComment.textOriginal,
@@ -594,7 +630,7 @@ ORDER BY highRatedComment.likeCounts DESC;
 SELECT 
 	vid.videoID,
     vid.title,
-    vid.description,
+    vid.duration,
     v.displayName AS viewer,
     e.usedDevice,
     e.watchAt
